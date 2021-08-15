@@ -9,4 +9,11 @@ const Text = ({ children, fontWeight = "regular", style }) => {
   );
 };
 
+export const HeaderText = ({children}) => {
+    return (
+        <h2 className = 'text--header'>
+            <Text>{children}</Text>
+        </h2>
+    )
+}
 export default Text;

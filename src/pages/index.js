@@ -1,5 +1,6 @@
 import * as React from "react"
 import Nav from "../components/Nav"
+import Banner from "../sections/Home/Banner"
 import '../shared/reset.scss'
 
 // markup
@@ -9,6 +10,7 @@ const IndexPage = () => {
       <header>
         <Nav />
       </header>
+      <Banner />
     </main>
   )
 }
