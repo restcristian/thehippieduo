@@ -1,0 +1,30 @@
+@import '../../shared/colors';
+@import '../../shared/mixins';
+@import '../../shared/animations';
+
+.countdown {
+    &__wrapper {
+        display: flex;
+    }
+    &__day, &__hours, &__minutes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $color-tomthumb;
+        padding: 0 12px;
+    }
+
+    &__time, &__colon{
+        color: $color-tomthumb;
+        @include fluid-type( 1024px, 1920px, 40px, 121px);
+        line-height: 1;
+    }
+
+    &__label {
+        font-size: 31px;
+    }
+
+    &__colon {
+        animation: blink 1s ease-in 0s infinite alternate-reverse;
+    }
+}

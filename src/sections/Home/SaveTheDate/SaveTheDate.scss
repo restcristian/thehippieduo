@@ -1,5 +1,6 @@
 @import '../../../shared/colors';
 @import '../../../shared/mixins';
+@import '../../../shared/breakpoints';
 
 .saveTheDate {
     background-color: $color-calico;
@@ -9,12 +10,38 @@
         background-size: 75%;
         background-position: 0 center;
         background-repeat: no-repeat;
-        padding: 114px 130px;
+        padding: 114px 0px;
+
+        display: flex;
+        width: 100%;
+
+        @media(max-width: $desktopMax) {
+            display: block;
+            padding: 24px 0;
+        }
     }
 
     &__column {
         width: 50%;
         text-align: center;
+
+        @media(max-width: $desktopMax) {
+            width: 100%;
+        }
+    }
+
+    &__columnLeft{
+        padding-right: 24px;
+    }
+
+    &__countdownColumn {
+        display: flex;
+        justify-content: flex-end;
+
+        @media(max-width: $desktopMax) {
+            justify-content: center;
+            padding-top: 40px;
+        }
     }
 
     &__title {
