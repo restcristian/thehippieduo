@@ -1,46 +1,70 @@
 @import "../../../shared/colors";
+@import "../../../shared/breakpoints";
+
 .banner {
   height: 100vh;
   position: relative;
   display: flex;
   background-color: $color-alabaster;
+
+  @media (max-width: $desktopMax) {
+    display: block;
+    height: auto;
+  }
+
   &__leftBG {
     width: 50%;
     height: 100%;
     background-image: url("../../../images/banner@2x.png");
     background-size: cover;
     background-position: center center;
+
+    @media (max-width: $desktopMax) {
+      width: 100%;
+      height: 300px;
+    }
   }
 
   &__right {
     width: 50%;
-
-    &-wrapper {
-      padding-top: 155px;
+    display: flex;
+    align-items: center;
+    @media (max-width: $desktopMax) {
+      width: 100%;
+      display: block;
+      padding: 24px;
     }
   }
 
   &__wrapper {
     padding-left: 109px;
     max-width: 500px;
+
+    @media (max-width: $desktopMax) {
+      padding: 0;
+    }
   }
 
   &__andrysCris {
     max-width: 100%;
     margin-left: -8%;
+
+    @media (max-width: $desktopMax) {
+      margin: 0;
+    }
   }
 
   &__hashtag {
     color: $color-tomthumb;
     font-size: 24px;
     line-height: 29px;
-  } 
+  }
 
   &__description {
-      color: $color-scorpion;
-      font-size: 16px;
-      line-height: 30px;
-      margin-top: 45px;
-      margin-bottom: 52px;
+    color: $color-scorpion;
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 45px;
+    margin-bottom: 52px;
   }
 }
