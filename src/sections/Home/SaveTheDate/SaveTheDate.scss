@@ -20,7 +20,7 @@
     &__title {
         text-transform: none;
         color: $color-white;
-        @include fluid(font-size, 40, 100, 1024, 1920 );
+        @include fluid-type( 1024px, 1920px, 40px, 100px);
         line-height: 1;
     }
 
