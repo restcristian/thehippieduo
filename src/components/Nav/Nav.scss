@@ -1,0 +1,30 @@
+@import '../../shared/_colors.scss';
+
+.nav {
+  width: 100%;
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+  }
+
+  &__list-item {
+    text-transform: uppercase;
+    &:not(:last-child) {
+      padding-right: 31px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 1.12px;
+        color: $color-verdigris;
+    }
+  }
+}
