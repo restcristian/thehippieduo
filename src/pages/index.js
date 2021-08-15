@@ -1,6 +1,6 @@
 import * as React from "react"
 import Nav from "../components/Nav"
-
+import '../shared/reset.scss'
 
 // markup
 const IndexPage = () => {
