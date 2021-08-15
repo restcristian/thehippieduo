@@ -2,7 +2,8 @@
 
 .text{
     font-family: 'Montserrat', sans-serif;
-
+    position: relative;
+    z-index: 2;
     &--regular{
         font-weight: 400;
     }
