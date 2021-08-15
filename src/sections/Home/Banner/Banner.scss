@@ -1,0 +1,15 @@
+.banner {
+   height: 100vh;
+   position: relative;
+
+   &__leftBG {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 50%;
+       height: 100%;
+       background-image: url('../../../images/banner@2x.png');
+       background-size: cover;
+       background-position: top left;
+   }
+}
