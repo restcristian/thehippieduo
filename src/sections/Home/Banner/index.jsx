@@ -4,6 +4,7 @@ import "./Banner.scss";
 
 import andrysCristian from "../../../images/andrysandcristian@2x.png";
 import Button from "../../../components/Button";
+import Img from "../../../components/Img";
 
 const Banner = () => {
   return (
@@ -11,7 +12,7 @@ const Banner = () => {
       <div className="banner__leftBG"></div>
       <div className="banner__right">
         <div className="banner__right-wrapper">
-          <img
+          <Img
             className="banner__andrysCris"
             src={andrysCristian}
             alt="Andrys & Cristian"
