@@ -1,0 +1,33 @@
+@import '../../../shared/colors';
+@import '../../../shared/mixins';
+
+.saveTheDate {
+    background-color: $color-calico;
+
+    &__wrapper {
+        background-image: url('../../../images/seventies@2x.png');
+        background-size: 75%;
+        background-position: 0 center;
+        background-repeat: no-repeat;
+        padding: 114px 130px;
+    }
+
+    &__column {
+        width: 50%;
+        text-align: center;
+    }
+
+    &__title {
+        text-transform: none;
+        color: $color-white;
+        @include fluid(font-size, 40, 100, 1024, 1920 );
+        line-height: 1;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 30px;
+        color: $color-verdigris;
+
+    }
+}

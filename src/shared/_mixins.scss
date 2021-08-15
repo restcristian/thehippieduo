@@ -1,0 +1,3 @@
+@mixin fluid($property, $min_size, $max_size, $min_vp_width, $max_vp_width) {
+    #{$property}: calc(#{$min_size}px + (#{$max_size} - #{$min_size}) * ((100vw - #{$min_vp_width}px) / (#{$max_vp_width} - #{$min_vp_width})));
+}
