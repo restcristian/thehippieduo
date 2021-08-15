@@ -1,15 +1,46 @@
+@import "../../../shared/colors";
 .banner {
-   height: 100vh;
-   position: relative;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  background-color: $color-alabaster;
+  &__leftBG {
+    width: 50%;
+    height: 100%;
+    background-image: url("../../../images/banner@2x.png");
+    background-size: cover;
+    background-position: top left;
+  }
 
-   &__leftBG {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 50%;
-       height: 100%;
-       background-image: url('../../../images/banner@2x.png');
-       background-size: cover;
-       background-position: top left;
-   }
+  &__right {
+    width: 50%;
+
+    &-wrapper {
+      padding-top: 155px;
+    }
+  }
+
+  &__wrapper {
+    padding-left: 109px;
+    max-width: 500px;
+  }
+
+  &__andrysCris {
+    max-width: 100%;
+    margin-left: -8%;
+  }
+
+  &__hashtag {
+    color: $color-tomthumb;
+    font-size: 24px;
+    line-height: 29px;
+  } 
+
+  &__description {
+      color: $color-scorpion;
+      font-size: 16px;
+      line-height: 30px;
+      margin-top: 45px;
+      margin-bottom: 52px;
+  }
 }
