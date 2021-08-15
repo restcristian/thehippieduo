@@ -1,0 +1,60 @@
+@import '../../../shared/colors';
+@import '../../../shared/mixins';
+@import '../../../shared/breakpoints';
+
+.saveTheDate {
+    background-color: $color-calico;
+
+    &__wrapper {
+        background-image: url('../../../images/seventies@2x.png');
+        background-size: 75%;
+        background-position: 0 center;
+        background-repeat: no-repeat;
+        padding: 114px 0px;
+
+        display: flex;
+        width: 100%;
+
+        @media(max-width: $desktopMax) {
+            display: block;
+            padding: 24px 0;
+        }
+    }
+
+    &__column {
+        width: 50%;
+        text-align: center;
+
+        @media(max-width: $desktopMax) {
+            width: 100%;
+        }
+    }
+
+    &__columnLeft{
+        padding-right: 24px;
+    }
+
+    &__countdownColumn {
+        display: flex;
+        justify-content: flex-end;
+
+        @media(max-width: $desktopMax) {
+            justify-content: center;
+            padding-top: 40px;
+        }
+    }
+
+    &__title {
+        text-transform: none;
+        color: $color-white;
+        @include fluid-type( 1024px, 1920px, 40px, 100px);
+        line-height: 1;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 30px;
+        color: $color-verdigris;
+
+    }
+}

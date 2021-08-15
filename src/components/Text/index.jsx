@@ -1,17 +1,17 @@
 import React from "react";
 import "./Text.scss";
 
-const Text = ({ children, fontWeight = "regular", style }) => {
+const Text = ({ children, fontWeight = "regular", className, ...rest }) => {
   return (
-    <span className={`text text--${fontWeight}`} style={{ ...style }}>
+    <span {...rest} className={`text text--${fontWeight} ${className}`}>
       {children}
     </span>
   );
 };
 
-export const HeaderText = ({children}) => {
+export const HeaderText = ({children, className, ...rest}) => {
     return (
-        <h2 className = 'text--header'>
+        <h2 {...rest} className = {`text--header ${className}`}>
             <Text>{children}</Text>
         </h2>
     )
