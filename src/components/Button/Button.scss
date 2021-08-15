@@ -15,7 +15,7 @@
     padding: 10px 30px;
     position: relative;
     transition: .2s ease-in-out;
-    
+    z-index: 1;
     &:before {
         content: '';
         position: absolute;

@@ -24,8 +24,10 @@ const GiftList = () => {
                 Accede a la página de Amazon Alemania para dejar tu amor de
                 forma física en nuestro nuevo hogar.
               </Text>
-              <Button className = "giftList__button"><Text>Ver Lista de Regalos</Text></Button>
             </p>
+            <Button className="giftList__button">
+              <Text>Ver Lista de Regalos</Text>
+            </Button>
           </div>
         </div>
       </Grid>

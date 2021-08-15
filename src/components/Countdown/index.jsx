@@ -7,7 +7,7 @@ const Countdown = () => {
   const [days, setDays] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
-  const countdownDate = new Date("April 22, 2022 15:00:00");
+  const countdownDate = new Date("April 14, 2022 15:00:00");
   let timeInterval;
 
   const timePass = () => {
