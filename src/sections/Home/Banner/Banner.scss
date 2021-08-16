@@ -6,6 +6,7 @@
   position: relative;
   display: flex;
   background-color: $color-alabaster;
+  margin-top: -92px;
 
   @media (max-width: $desktopMax) {
     display: block;
@@ -51,6 +52,7 @@
 
     @media (max-width: $desktopMax) {
       margin: 0;
+      margin-top: -95px;
     }
   }
 
