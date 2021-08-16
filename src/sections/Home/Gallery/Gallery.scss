@@ -1,0 +1,90 @@
+@import "../../../shared/colors";
+@import "../../../shared/mixins";
+@import "../../../shared/breakpoints";
+
+.gallery {
+  background-color: $color-karry;
+
+  &__wrapper {
+    padding: 88px 0;
+
+    @media(max-width: $desktopMax) {
+        padding: 24px 0;
+    }
+  }
+
+  &__headerTextContainer {
+    text-align: center;
+    margin-bottom: 80px;
+
+    @media(max-width: $desktopMax) {
+        margin-bottom: 8px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0 -12px;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 20%;
+    padding: 8px;
+
+    @media(max-width: $desktopMax) {
+        width: 33.3333%;
+    }
+
+    @media(max-width: $tabletMax) {
+        width: 50%;
+    }
+    @media(max-width: $mobileMax) {
+        width: 100%;
+    }
+
+  }
+
+  &__imgContainer {
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding-top: 100%;
+    background-color: $color-sepianskin;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: rgba(96, 92, 54, 0.8);
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  &__imgLabelContainer {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__imgLabel {
+    color: $color-karry;
+    @include fluid-type(1024px, 1920px, 18px, 22px);
+    line-height: 1;
+    display: block;
+    transform: rotate(45deg);
+    text-align: center;
+  }
+}
