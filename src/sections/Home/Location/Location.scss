@@ -1,0 +1,10 @@
+@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+.location {
+    &__row {
+        display: flex;
+    }
+    &__map {
+        width: 60%;
+        height: 673px;
+    }
+}
