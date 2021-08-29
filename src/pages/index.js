@@ -3,6 +3,7 @@ import Nav from "../components/Nav"
 import Banner from "../sections/Home/Banner"
 import Gallery from "../sections/Home/Gallery"
 import GiftList from "../sections/Home/GiftList"
+import QA from "../sections/Home/QA"
 import SaveTheDate from "../sections/Home/SaveTheDate"
 import '../shared/reset.scss'
 
@@ -17,6 +18,7 @@ const IndexPage = () => {
       <SaveTheDate />
       <GiftList />
       <Gallery />
+      <QA />
     </main>
   )
 }

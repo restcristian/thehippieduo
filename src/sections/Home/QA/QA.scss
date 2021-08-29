@@ -1,0 +1,46 @@
+@import '../../../shared/colors';
+@import '../../../shared/breakpoints';
+
+.qa {
+    background-color: $color-alabaster;
+
+    &__wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 88px 0 224px 0;
+    }
+
+    &__accordion {
+        padding-top: 40px;
+    }
+
+    @media(max-width: $desktopMax) {
+       &__wrapper {
+           padding: 24px 0;
+       }
+    }
+
+}
+
+.weddingTheme {
+    &__colors {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    &__item {
+        text-align: center;
+        padding: 24px;
+    }
+    &__color {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    &__label {
+        font-size: 12px;
+        padding-top: 7px;
+        display: inline-block;
+    }
+}
