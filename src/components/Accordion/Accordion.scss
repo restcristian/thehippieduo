@@ -1,0 +1,60 @@
+@import "../../shared/colors";
+@import "../../shared/breakpoints";
+
+.accordion {
+  border-bottom: 4px solid $color-cameo;
+  border-top: 4px solid $color-cameo;
+
+  &__listItem {
+    padding: 24px 22px;
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top:18px;
+        right: 12px;
+        width: 14px;
+        height: 14px;
+        border-top: 3px solid $color-faulred;
+        border-right: 3px solid $color-faulred;
+        transform:rotate(135deg);
+        transition: .2s ease-in-out;
+    }
+
+    cursor: pointer;
+    &:not(:last-child) {
+      border-bottom: 4px solid $color-cameo;
+    }
+
+    &.open {
+        &:before {
+            transform:rotate(315deg);
+        }
+      .accordion__answer {
+        padding-top: 24px;
+        max-height: 100%;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    color: $color-scorpion;
+
+    b {
+        font-weight: bold;
+    }
+
+    a {
+        color: $color-faulred;
+        text-decoration: none;
+        font-weight: bold;
+    }
+  }
+}
