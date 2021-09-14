@@ -3,6 +3,7 @@ import Nav from "../components/Nav"
 import Banner from "../sections/Home/Banner"
 import Gallery from "../sections/Home/Gallery"
 import GiftList from "../sections/Home/GiftList"
+import GoodBye from "../sections/Home/GoodBye"
 import Location from "../sections/Home/Location"
 import QA from "../sections/Home/QA"
 import RSVP from "../sections/Home/RSVP"
@@ -23,6 +24,7 @@ const IndexPage = () => {
       <QA />
       <Location />
       <RSVP />
+      <GoodBye />
     </main>
   )
 }
