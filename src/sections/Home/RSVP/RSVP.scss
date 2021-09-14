@@ -1,0 +1,55 @@
+@import "../../../shared/colors";
+@import "../../../shared/breakpoints";
+
+.rsvp {
+  background-color: $color-alabaster;
+
+  &__row {
+    display: flex;
+    padding: 120px 0;
+    @media (max-width: $desktopMax) {
+      flex-direction: column;
+      padding: 24px 0;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  &__infoCol {
+    width: 50%;
+    padding-right: 148px;
+    @media (max-width: $desktopMax) {
+      order: 2;
+      padding: 24px 0;
+      width: 100%;
+    }
+  }
+
+  &__imgCol {
+    width: 50%;
+    @media (max-width: $desktopMax) {
+      order: 1;
+      width: 100%;
+      padding: 0;
+
+      .rsvp__imgContainer {
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+
+  &__submitContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 38px;
+  }
+  &__submitButton {
+    padding: 21px 99px;
+  }
+}

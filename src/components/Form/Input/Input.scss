@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import "../../../shared/colors";
+@import "../../../shared/breakpoints";
+
+.input {
+  padding:24px 0;
+  &__controller {
+    appearance: none;
+    border:none;
+    background: $color-alabaster;
+    width: 100%;
+    box-shadow: 0px 4px 0px $color-cameo;
+    padding: 20px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 32px;
+    color: $color-faulred;
+    outline: none;
+    font-weight: 600;
+    &:hover {
+        background-color: $color-bridesmaid;
+    }
+    &::placeholder {
+        color: $color-faulred; ;
+    }
+  }
+}
