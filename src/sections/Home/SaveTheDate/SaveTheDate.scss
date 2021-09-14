@@ -17,7 +17,7 @@
 
         @media(max-width: $desktopMax) {
             display: block;
-            padding: 24px 0;
+            padding: 24px 0 48px 0;
         }
     }
 
@@ -44,6 +44,10 @@
         }
     }
 
+    &__countdownColumnWrapper {
+        text-align: center;
+    }
+
     &__title {
         text-transform: none;
         color: $color-white;
@@ -56,5 +60,10 @@
         line-height: 30px;
         color: $color-verdigris;
 
+    }
+
+    &__addToCalendar{
+        text-align: center;
+        margin-top: 36px;
     }
 }

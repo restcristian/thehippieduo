@@ -15,11 +15,11 @@
 
     &__time, &__colon{
         color: $color-tomthumb;
-        @include fluid-type( 1024px, 1920px, 40px, 121px);
+        @include fluid-type( 1024px, 1920px, 40px, 110px);
         line-height: 1;
     }
 
     &__label {
-        font-size: 31px;
+        @include fluid-type( 1024px, 1920px, 14px, 30px);
     }
 }
