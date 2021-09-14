@@ -1,12 +1,11 @@
 @import '../../shared/colors';
 @import '../../shared/mixins';
-@import '../../shared/animations';
 
 .countdown {
     &__wrapper {
         display: flex;
     }
-    &__day, &__hours, &__minutes{
+    &__day, &__hours, &__minutes,&__seconds{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,9 +21,5 @@
 
     &__label {
         font-size: 31px;
-    }
-
-    &__colon {
-        animation: blink 1s ease-in 0s infinite alternate-reverse;
     }
 }
