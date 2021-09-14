@@ -47,4 +47,24 @@
     color: $color-scorpion;
     margin-top: 48px;
   }
+
+  &__marker {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 12.5px 0 12.5px;
+      border-color:  $color-faulred transparent transparent transparent;
+    }
+  }
 }

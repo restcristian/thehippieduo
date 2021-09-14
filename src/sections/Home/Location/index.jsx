@@ -1,12 +1,19 @@
 import React, { useEffect, useRef } from "react";
-import { map, tileLayer, marker } from "leaflet";
+
+import { map, tileLayer, marker, divIcon } from "leaflet";
 import Text, { HeaderText } from "../../../components/Text";
 import "./Location.scss";
 
 const Location = () => {
   const mapRef = useRef(null);
+
+  const renderMarker = () => (
+    `<div className = "location__marker">
+
+    </div>`
+  )
   useEffect(() => {
-    const myMap = map(mapRef.current).setView([18.454764, -69.933219], 80);
+    const myMap = map(mapRef.current).setView([18.454764, -69.933219], 80)
 
     tileLayer(
       "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
@@ -17,7 +24,7 @@ const Location = () => {
       }
     ).addTo(myMap);
 
-    marker([18.454764, -69.933219])
+    marker([18.454764, -69.933219], {icon: divIcon({className: 'location__marker', html: renderMarker() }) })
       .addTo(myMap)
       .bindPopup("<b>Hotel Embajador</b></br>")
       .openPopup();

@@ -50,3 +50,7 @@ table {
 body {
 	background-color: $color-alabaster;
 }
+
+.leaflet-touch .leaflet-control-attribution {
+	display: none !important;
+}
