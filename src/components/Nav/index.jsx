@@ -39,7 +39,7 @@ const Nav = () => {
             </li>
           ))}
           <li className="nav__list-item">
-            <Button>
+            <Button size="normal">
               <Text>rsvp</Text>
             </Button>
           </li>
