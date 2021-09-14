@@ -16,6 +16,11 @@
     position: relative;
     transition: .2s ease-in-out;
     z-index: 1;
+
+    &--large{
+        height: 70px;
+    }
+
     &:before {
         content: '';
         position: absolute;
