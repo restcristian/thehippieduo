@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { map, tileLayer, marker } from "leaflet";
+import Text, { HeaderText } from "../../../components/Text";
 import "./Location.scss";
 
 const Location = () => {
@@ -26,6 +27,22 @@ const Location = () => {
     <section className="location">
       <div className="location__row">
         <div ref={mapRef} className="location__map"></div>
+        <div className="location__infoCol">
+          <HeaderText className="location__title">Ubicación</HeaderText>
+          <Text className="location__description">
+            Hotel El Embajador,
+            <br />A Royal Hideaway
+          </Text>
+          <address className="location__address">
+            <Text>
+              Av Sarasota, No. 65,
+              <br />
+              Santo Domingo
+              <br />
+              República Dominicana
+            </Text>
+          </address>
+        </div>
       </div>
     </section>
   );

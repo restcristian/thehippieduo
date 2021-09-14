@@ -1,10 +1,50 @@
-@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+@import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
+@import "../../../shared/colors";
+@import "../../../shared/breakpoints";
+
 .location {
-    &__row {
-        display: flex;
+  background-color: $color-alabaster;
+  &__row {
+    display: flex;
+
+    @media (max-width: $desktopMax) {
+      flex-direction: column;
     }
-    &__map {
-        width: 60%;
-        height: 673px;
+  }
+  &__map {
+    width: 60%;
+    height: 673px;
+
+    @media (max-width: $desktopMax) {
+      display: block;
+      width: 100%;
+      order: 2;
+      padding: 24px;
+      height: 300px;
     }
+  }
+  &__infoCol {
+    flex: 1;
+    padding: 40px 127px;
+
+    @media (max-width: $desktopMax) {
+      display: block;
+      width: 100%;
+      order: 1;
+      padding: 24px;
+      text-align: center;
+    }
+  }
+  &__description {
+    font-size: 24px;
+    line-height: 29px;
+    color: $color-tomthumb;
+  }
+
+  &__address {
+    font-size: 16px;
+    line-height: 30px;
+    color: $color-scorpion;
+    margin-top: 48px;
+  }
 }
