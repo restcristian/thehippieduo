@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import Grid from "../Grid";
 import Text from "../Text";
@@ -27,23 +27,37 @@ const items = [
   },
 ];
 const Nav = () => {
+  const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+
   return (
-    <nav className="nav">
+    <nav className={`nav ${isNavigationOpen ? 'nav--open': ''}`}>
       <Grid>
-        <ul className="nav__list">
-          {items.map((item, index) => (
-            <li className="nav__list-item" key={`{nav__list-item-${index}}`}>
-              <a href={item.link}>
-                <Text fontWeight="bold">{item.label}</Text>
-              </a>
+        <div className="nav__wrapper">
+          <ul className="nav__list">
+            {items.map((item, index) => (
+              <li className="nav__list-item" key={`{nav__list-item-${index}}`}>
+                <a href={item.link}>
+                  <Text fontWeight="bold">{item.label}</Text>
+                </a>
+              </li>
+            ))}
+            <li className="nav__list-item">
+              <Button size="normal" className="nav__rsvpButton">
+                <Text>rsvp</Text>
+              </Button>
             </li>
-          ))}
-          <li className="nav__list-item">
-            <Button size="normal">
-              <Text>rsvp</Text>
-            </Button>
-          </li>
-        </ul>
+          </ul>
+          <button
+            className="nav__toggle"
+            onClick={() =>
+              setIsNavigationOpen(
+                (prevIsNavigationOpen) => !prevIsNavigationOpen
+              )
+            }
+          >
+            <span>toggle</span>
+          </button>
+        </div>
       </Grid>
     </nav>
   );

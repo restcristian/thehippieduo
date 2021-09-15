@@ -37,12 +37,22 @@
     }
   }
 
+  &__right-wrapper{
+    @media(min-width: $desktopMin) {
+      padding-top: 98px;
+    }
+  }
+
   &__wrapper {
     padding-left: 109px;
     max-width: 500px;
 
     @media (max-width: $desktopMax) {
       padding: 0;
+    }
+
+    @media(min-width: $desktopMin) {
+      padding-top: 26px;
     }
   }
 
@@ -66,7 +76,7 @@
     color: $color-scorpion;
     font-size: 16px;
     line-height: 30px;
-    margin-top: 45px;
-    margin-bottom: 52px;
+    margin-top: 20px;
+    margin-bottom: 26px;
   }
 }
