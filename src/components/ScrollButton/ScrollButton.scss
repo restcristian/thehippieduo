@@ -1,0 +1,22 @@
+@import "../../shared/colors";
+.scrollButton {
+    appearance: none;
+    padding: 0;
+    margin:0;
+    background-color: transparent;
+    position: fixed;
+    bottom: 32px;
+    right: 20px;
+    width: 57px;
+    height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    >svg{
+        width: 14px;
+        margin: 0;
+        padding: 0;
+    }
+}

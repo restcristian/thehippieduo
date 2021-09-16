@@ -3,6 +3,7 @@ import Button from "../Button";
 import Grid from "../Grid";
 import Text from "../Text";
 import "./Nav.scss";
+import { scrollTo } from "../../shared/utils";
 
 const items = [
   {
@@ -33,18 +34,6 @@ const items = [
 ];
 const Nav = () => {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
-
-  const scrollTo = (element, to, duration) => {
-    if (duration <= 0) return;
-    const difference = to - element.scrollTop;
-    const perTick = (difference / duration) * 10;
-
-    setTimeout(() => {
-      element.scrollTop = element.scrollTop + perTick;
-      if (element.scrollTop === to) return;
-      scrollTo(element, to, duration - 10);
-    }, 10);
-  };
 
   const onItemClickHandler = (item, isRSVP = false) => {
     setIsNavigationOpen(false);

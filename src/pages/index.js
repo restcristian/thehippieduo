@@ -1,5 +1,6 @@
 import * as React from "react"
 import Nav from "../components/Nav"
+import ScrollButton from "../components/ScrollButton"
 import Banner from "../sections/Home/Banner"
 import Gallery from "../sections/Home/Gallery"
 import GiftList from "../sections/Home/GiftList"
@@ -25,6 +26,7 @@ const IndexPage = () => {
       <Location />
       <RSVP />
       <GoodBye />
+      <ScrollButton />
     </main>
   )
 }
