@@ -77,7 +77,7 @@ $bk-medium: 1219px;
       color: $color-verdigris;
 
       @media (max-width: $bk-medium) {
-        font-size: 48px;
+        font-size: 26px;
         line-height: 1;
         color: $color-white;
       }
@@ -88,7 +88,7 @@ $bk-medium: 1219px;
       border-color: $color-white;
       color: $color-white;
       width: 320px;
-      font-size: 48px;
+      font-size: 31px;
       line-height: 1;
       padding: 20px 30px;
     }
@@ -103,7 +103,8 @@ $bk-medium: 1219px;
     outline: none;
     z-index: 200;
     border: none;
-
+    cursor: pointer;
+    
     >span {
       position: absolute;
       top: -99999px;
