@@ -8,26 +8,54 @@ const items = [
   {
     label: "Save the Date",
     link: "#",
+    scrollToSelector: "section.saveTheDate",
   },
   {
     label: "Regalos",
     link: "#",
+    scrollToSelector: "section.giftList",
   },
   {
     label: "Q&A",
     link: "#",
+    scrollToSelector: "section.qa",
   },
   {
     label: "Galería",
     link: "#",
+    scrollToSelector: "section.gallery",
   },
   {
     label: "Ubicación",
     link: "#",
+    scrollToSelector: "section.location",
   },
 ];
 const Nav = () => {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+
+  const scrollTo = (element, to, duration) => {
+    if (duration <= 0) return;
+    const difference = to - element.scrollTop;
+    const perTick = (difference / duration) * 10;
+
+    setTimeout(() => {
+      element.scrollTop = element.scrollTop + perTick;
+      if (element.scrollTop === to) return;
+      scrollTo(element, to, duration - 10);
+    }, 10);
+  };
+
+  const onItemClickHandler = (item, isRSVP = false) => {
+    setIsNavigationOpen(false);
+    let toSelector;
+    if (!isRSVP) {
+      toSelector = document.querySelector(item.scrollToSelector);
+    } else {
+      toSelector = document.querySelector("section.rsvp");
+    }
+    scrollTo(document.documentElement, toSelector.offsetTop, 200);
+  };
 
   return (
     <nav className={`nav ${isNavigationOpen ? "nav--open" : ""}`}>
@@ -36,13 +64,25 @@ const Nav = () => {
           <ul className="nav__list">
             {items.map((item, index) => (
               <li className="nav__list-item" key={`{nav__list-item-${index}}`}>
-                <a href={item.link}>
+                <a
+                  href={item.link}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onItemClickHandler(item);
+                  }}
+                >
                   <Text fontWeight="bold">{item.label}</Text>
                 </a>
               </li>
             ))}
             <li className="nav__list-item">
-              <Button size="normal" className="nav__rsvpButton">
+              <Button
+                size="normal"
+                className="nav__rsvpButton"
+                onClick={() => {
+                  onItemClickHandler(null, true);
+                }}
+              >
                 <Text>rsvp</Text>
               </Button>
             </li>
