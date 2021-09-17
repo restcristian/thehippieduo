@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { isInViewport, scrollTo, useScrollDirection } from "../../shared/utils";
 import Button from "../Button";
-import './ScrollButton.scss'
+import "./ScrollButton.scss";
 
 const ScrollButton = () => {
+  const [isScrollButtonShown, setIsScrollButtonShown] = useState(false);
+  const { direction, currentScroll } = useScrollDirection();
+
+  useEffect(() => {
+    const banner = document.querySelector("section.banner");
+    if (direction === "down" && !isInViewport(banner)) {
+      setIsScrollButtonShown(true);
+    } else {
+      setIsScrollButtonShown(false);
+    }
+  }, [direction, currentScroll]);
+
+  const onClickHandler = () => {
+    const selectorTo = document.querySelector("section.banner");
+    scrollTo(document.documentElement, selectorTo.offsetTop, 200);
+  };
   return (
-    <Button className = "scrollButton" animationDirection="top">
+    <Button
+      className={`scrollButton ${
+        isScrollButtonShown ? "scrollButton--shown" : ""
+      }`}
+      animationDirection="top"
+      onClick={onClickHandler}
+    >
       <svg viewBox="0 0 15.333 35.663">
         <defs />
         <path

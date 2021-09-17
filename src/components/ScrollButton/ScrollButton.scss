@@ -13,7 +13,15 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 99;
+    transition: .2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
 
+    &--shown {
+        opacity: 1;
+        visibility: visible;
+    } 
     >svg{
         width: 14px;
         margin: 0;
