@@ -7,6 +7,7 @@
   display: flex;
   background-color: $color-alabaster;
   margin-top: -92px;
+  overflow: hidden;
 
   @media (max-width: $desktopMax) {
     display: block;
@@ -33,7 +34,7 @@
     @media (max-width: $desktopMax) {
       width: 100%;
       display: block;
-      padding: 24px;
+      padding: 48px 24px;
     }
   }
 
