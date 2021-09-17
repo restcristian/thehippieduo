@@ -67,4 +67,8 @@
       border-color:  $color-faulred transparent transparent transparent;
     }
   }
+
+  .leaflet-pane {
+    z-index: 10;
+  }
 }

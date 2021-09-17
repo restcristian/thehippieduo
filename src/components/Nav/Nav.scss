@@ -1,4 +1,4 @@
-@import "../../shared/_colors.scss";
+@import "../../shared/colors.scss";
 @import "../../shared/breakpoints";
 
 $bk-large: 1403px;
@@ -48,6 +48,21 @@ $bk-medium: 1219px;
       @media (max-width: $bk-medium) {
         opacity: 1;
         visibility: visible;
+      }
+    }
+    .nav__toggle{
+      &:before{
+        opacity: 0;
+        visibility: hidden;
+      }
+      > svg {
+        opacity: 1;
+        visibility: visible;
+      }
+      &:hover {
+        > svg {
+          fill: $color-scorpion;
+        }
       }
     }
   }
@@ -104,11 +119,24 @@ $bk-medium: 1219px;
     z-index: 200;
     border: none;
     cursor: pointer;
-    
-    >span {
+
+    > span {
       position: absolute;
       top: -99999px;
       left: -9999px;
+    }
+    > svg {
+      height: 25px;
+      width: 25px;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      path {
+        fill: $color-karry;
+      }
     }
     &:before {
       content: "";
@@ -120,7 +148,7 @@ $bk-medium: 1219px;
     }
 
     &:hover {
-      &:before{
+      &:before {
         background-color: $color-karry;
       }
     }

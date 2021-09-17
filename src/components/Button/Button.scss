@@ -1,4 +1,4 @@
-@import '../../shared/_colors.scss';
+@import '../../shared/colors';
 
 .button {
     -webkit-appearance: none;
@@ -21,6 +21,12 @@
         height: 70px;
     }
 
+    > svg {
+        position: relative;
+        z-index: 1;
+    }
+    
+
     &:before {
         content: '';
         position: absolute;
@@ -35,8 +41,25 @@
 
     &:hover {
         color: $color-white;
+        
         &:before {
             width: 100%;
+        }
+    }
+
+    &--direction-top {
+        &::before{
+            bottom:0;
+            left:0;
+            top:auto;
+            height: 0;
+            width: 100%;
+        }
+
+        &:hover{
+            &::before{
+                height: 100%;
+            }
         }
     }
 
