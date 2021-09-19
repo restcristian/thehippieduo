@@ -17,7 +17,7 @@ const SaveTheDate = () => {
             <div className="saveTheDate__description">
               <Text fontWeight="bold">
                 Coloca tu propio recordatorio y mantente atento
-                <br />a todas las actualizaciones sobre nuestra boda.
+                a todas las actualizaciones sobre nuestra boda.
               </Text>
             </div>
           </div>

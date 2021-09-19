@@ -16,7 +16,7 @@
 
   &__leftBG {
     width: 50%;
-    height: 100%;
+    height: calc(100% + 1px);
     background-image: url("../../../images/banner@2x.png");
     background-size: cover;
     background-position: center center;
