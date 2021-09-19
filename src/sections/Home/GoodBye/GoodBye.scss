@@ -2,9 +2,11 @@
 @import "../../../shared/breakpoints";
 @import '../../../shared/mixins';
 
+$bp-medium: 600px;
+
 .goodbye {
     background-color: $color-alabaster;
-
+    
     &__row{
         position: relative;
         text-align: center;
@@ -33,5 +35,10 @@
         opacity: 0.18;
         pointer-events: none;
         width: calc(100% - 48px);
+
+        @media(max-width: $bp-medium) {
+            max-width: none;
+            width: 110%;;
+        }
     }
 }

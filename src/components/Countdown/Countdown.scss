@@ -12,6 +12,10 @@ $bp-small: 400px;
         align-items: center;
         color: $color-tomthumb;
         padding: 0 12px;
+
+        @media (max-width: $bp-small) {
+            padding: 0 6px;
+        }
     }
 
     &__time, &__colon{
@@ -20,7 +24,7 @@ $bp-small: 400px;
         line-height: 1;
 
         @media (max-width: $bp-small) {
-            font-size: 24px;
+            font-size: 21px;
         }
     }
 
