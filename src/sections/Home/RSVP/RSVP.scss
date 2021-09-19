@@ -21,7 +21,12 @@
   &__infoCol {
     width: 50%;
     padding-right: 148px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     @media (max-width: $desktopMax) {
+      display: block;
       order: 2;
       padding: 24px 0;
       width: 100%;
