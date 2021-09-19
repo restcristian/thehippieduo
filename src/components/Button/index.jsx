@@ -6,8 +6,23 @@ const Button = ({
   children,
   size = "large",
   animationDirection = "right",
+  isLink = false,
+  redirectTo = undefined,
   ...rest
 }) => {
+
+  if(isLink) {
+    return (
+      <a
+      {...rest}
+      href = {redirectTo}
+      target = "_blank"
+      className={`button ${className} button--link button--${size} button--direction-${animationDirection}`}
+    >
+      {children}
+    </a>
+    )
+  }
   return (
     <button
       {...rest}

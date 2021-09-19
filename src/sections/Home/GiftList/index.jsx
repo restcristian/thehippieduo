@@ -4,6 +4,7 @@ import Grid from "../../../components/Grid";
 import Img from "../../../components/Img";
 import Text, { HeaderText } from "../../../components/Text";
 import GiftListImage from "../../../images/giftlist@2x.png";
+
 import "./GiftList.scss";
 
 const GiftList = () => {
@@ -25,7 +26,11 @@ const GiftList = () => {
                 forma física en nuestro nuevo hogar.
               </Text>
             </p>
-            <Button className="giftList__button">
+            <Button
+              className="giftList__button"
+              isLink
+              redirectTo="https://www.amazon.de/wedding/share/thehippieduo"
+            >
               <Text>Ver Lista de Regalos</Text>
             </Button>
           </div>
