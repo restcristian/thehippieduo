@@ -5,6 +5,8 @@ import Grid from "../../../components/Grid";
 import Img from "../../../components/Img";
 import Text, { HeaderText } from "../../../components/Text";
 import rsvpImage from "../../../images/rsvp@2x.png";
+import HippieDuoService from "../../../services/HippieDuoService";
+
 import "./RSVP.scss";
 
 const RSVP = () => {
@@ -13,9 +15,14 @@ const RSVP = () => {
   const [message, setMessage] = useState("");
   const [song, setSong] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    alert('RSVP enviado');
+    try {
+      const data = await HippieDuoService.sendRSVP({ name, email, message, song });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

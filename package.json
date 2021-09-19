@@ -12,7 +12,9 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "server:start": "node server/index.js",
+    "server:dev": "nodemon server/index.js"
   },
   "dependencies": {
     "gatsby": "^3.10.2",
@@ -26,6 +28,11 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "sass": "^1.36.0"
+    "sass": "^1.36.0",
+    "express": "^4.17.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
