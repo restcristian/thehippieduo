@@ -19,7 +19,7 @@ const RSVP = () => {
     e.preventDefault();
     try {
       const data = await HippieDuoService.sendRSVP({ name, email, message, song });
-      console.log(data);
+      alert("Gracias por tu informacion :)")
     } catch (error) {
       console.log(error);
     }
