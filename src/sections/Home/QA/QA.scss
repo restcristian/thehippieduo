@@ -1,6 +1,8 @@
 @import '../../../shared/colors';
 @import '../../../shared/breakpoints';
 
+$bp-medium: 455px;
+
 .qa {
     background-color: $color-alabaster;
 
@@ -27,10 +29,17 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+
+        
     }
     &__item {
         text-align: center;
         padding: 24px;
+
+        @media(max-width: $bp-medium){
+         width: 50%;
+         padding: 12px;   
+        }
     }
     &__color {
         width: 60px;

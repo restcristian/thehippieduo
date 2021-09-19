@@ -91,6 +91,12 @@ $bk-medium: 1219px;
       letter-spacing: 1.12px;
       color: $color-verdigris;
 
+      @media(min-width: $bk-medium + 1px ) {
+        &:hover {
+          color: $color-faulred;
+        }
+      }
+
       @media (max-width: $bk-medium) {
         font-size: 26px;
         line-height: 1;

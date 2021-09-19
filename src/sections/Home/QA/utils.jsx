@@ -60,7 +60,7 @@ export const qaItems = [
   {
     question: "¿Dónde está la lista de regalos?",
     answer:
-      'Puedes encontrar la lista de obsequios <a target= "_blank" href = "http://google.com">aquí</a>.',
+      'Puedes encontrar la lista de obsequios <a target= "_blank" href = "https://www.amazon.de/wedding/share/thehippieduo">aquí</a>.',
   },
   {
     question: "¿El día que cae la boda es feriado?",

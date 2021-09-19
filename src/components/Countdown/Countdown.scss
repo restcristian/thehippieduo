@@ -1,6 +1,7 @@
 @import '../../shared/colors';
 @import '../../shared/mixins';
 
+$bp-small: 400px;
 .countdown {
     &__wrapper {
         display: flex;
@@ -11,15 +12,25 @@
         align-items: center;
         color: $color-tomthumb;
         padding: 0 12px;
+
+        @media (max-width: $bp-small) {
+            padding: 0 6px;
+        }
     }
 
     &__time, &__colon{
         color: $color-tomthumb;
         @include fluid-type( 1024px, 1920px, 40px, 110px);
         line-height: 1;
+
+        @media (max-width: $bp-small) {
+            font-size: 21px;
+        }
     }
 
     &__label {
         @include fluid-type( 1024px, 1920px, 14px, 30px);
     }
+
+    
 }
