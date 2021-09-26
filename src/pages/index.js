@@ -1,4 +1,5 @@
 import * as React from "react"
+import HashTagLink from "../components/HashTagLink"
 import Nav from "../components/Nav"
 import ScrollButton from "../components/ScrollButton"
 import Banner from "../sections/Home/Banner"
@@ -27,6 +28,7 @@ const IndexPage = () => {
       <RSVP />
       <GoodBye />
       <ScrollButton />
+      <HashTagLink />
     </main>
   )
 }
