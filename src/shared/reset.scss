@@ -49,8 +49,13 @@ table {
 
 body {
 	background-color: $color-alabaster;
+
+	&.isModalOpen {
+		overflow-y: hidden;
+	}
 }
 
 .leaflet-touch .leaflet-control-attribution {
 	display: none !important;
 }
+

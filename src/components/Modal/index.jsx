@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Modal.scss";
 
 const Modal = ({ children, isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("isModalOpen");
+    } else {
+      document.body.classList.remove("isModalOpen");
+    }
+  }, [isOpen]);
+
   return (
-    <div className={`modal ${isOpen ? 'modal--isOpen': ''}`}>
+    <div className={`modal ${isOpen ? "modal--isOpen" : ""}`}>
       <div className="modal__wrapper">
-        <button className="modal__closeBtn" onClick = {onClose}>
+        <button className="modal__closeBtn" onClick={onClose}>
           <span>close</span>
           <svg
             height="311pt"

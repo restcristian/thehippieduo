@@ -24,7 +24,7 @@ const RSVP = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await HippieDuoService.sendRSVP({ name, email, message, song });
+      // await HippieDuoService.sendRSVP({ name, email, message, song });
       setIsModalOpen(true);
     } catch (error) {
       console.log(error);
@@ -84,7 +84,7 @@ const RSVP = () => {
       </Grid>
       <Modal isOpen={isModalOpen} onClose={onModalClose}>
         <div>
-          <HeaderText>Gracias por confirmar</HeaderText>
+          <HeaderText className = "rsvp__modalHeader">Gracias por confirmar</HeaderText>
           <p className="rsvp__modalParagraph">
             <Text>
               Tu mensaje se ha enviado a nuestra bandeja de entrada. Te
@@ -92,7 +92,7 @@ const RSVP = () => {
             </Text>
           </p>
           <div>
-            <Button className="rsvp__modalBtn">
+            <Button className="rsvp__modalBtn" onClick = {onModalClose}>
               <Text>Entendido</Text>
             </Button>
           </div>
