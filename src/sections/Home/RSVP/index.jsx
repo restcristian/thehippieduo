@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../../components/Button";
+import Modal from "../../../components/Modal";
 import Input from "../../../components/Form/Input";
 import Grid from "../../../components/Grid";
 import Img from "../../../components/Img";
@@ -15,11 +16,16 @@ const RSVP = () => {
   const [message, setMessage] = useState("");
   const [song, setSong] = useState("");
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const onModalClose = () =>
+    setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await HippieDuoService.sendRSVP({ name, email, message, song });
-      alert("Gracias por tu informacion :)")
+      await HippieDuoService.sendRSVP({ name, email, message, song });
+      setIsModalOpen(true);
     } catch (error) {
       console.log(error);
     }
@@ -76,6 +82,22 @@ const RSVP = () => {
           </div>
         </div>
       </Grid>
+      <Modal isOpen={isModalOpen} onClose={onModalClose}>
+        <div>
+          <HeaderText>Gracias por confirmar</HeaderText>
+          <p className="rsvp__modalParagraph">
+            <Text>
+              Tu mensaje se ha enviado a nuestra bandeja de entrada. Te
+              estaremos actualizando sobre el proceso de la boda.
+            </Text>
+          </p>
+          <div>
+            <Button className="rsvp__modalBtn">
+              <Text>Entendido</Text>
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 };
