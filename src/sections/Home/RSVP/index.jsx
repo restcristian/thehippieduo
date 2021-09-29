@@ -24,7 +24,7 @@ const RSVP = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      // await HippieDuoService.sendRSVP({ name, email, message, song });
+      await HippieDuoService.sendRSVP({ name, email, message, song });
       setIsModalOpen(true);
     } catch (error) {
       console.log(error);
