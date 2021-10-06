@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useRef} from "react";
 import Button from "../../../components/Button";
 import Countdown from "../../../components/Countdown";
 import Grid from "../../../components/Grid";
 import Text, { HeaderText } from "../../../components/Text";
+import { useScrollDirection } from "../../../shared/utils";
 import "./SaveTheDate.scss";
 
 const SaveTheDate = () => {
+  const sectionRef = useRef(null);
+  const {isInViewport} = useScrollDirection(sectionRef?.current);
   return (
-    <section className="saveTheDate">
+    <section className="saveTheDate" ref = {sectionRef}>
       <Grid className="saveTheDate__row">
         <div className="saveTheDate__wrapper">
           <div className="saveTheDate__column saveTheDate__columnLeft">

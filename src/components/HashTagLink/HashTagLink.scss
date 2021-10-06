@@ -23,6 +23,8 @@
     line-height: 18px;
     position: relative;
 
+    mix-blend-mode: difference;
+
     padding-right: 44px;
 
     &::before {

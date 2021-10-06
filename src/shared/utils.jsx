@@ -33,40 +33,68 @@ export const formatTime = (time) => {
   return time;
 };
 
-export const useScrollDirection = () => {
+const isScrolledIntoView = (el) => {
+  const rect = el.getBoundingClientRect();
+  const elemTop = rect.top;
+  const elemBottom = rect.bottom;
+
+  // Only completely visible elements return true:
+  const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+  
+  return isVisible;
+}
+
+export const useScrollDirection = (currentSection = null) => {
   const [direction, setDirection] = useState("");
   const [scroll, setScroll] = useState(window.pageYOffset);
- 
+  const [isInViewport, setIsViewport] = useState(false);
+  
+
   let lastScroll = 0;
+
+  const directionHandler = () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll <= 0) {
+      return;
+    }
+    if (currentScroll > lastScroll) {
+      setDirection("down");
+    } else if (currentScroll < lastScroll) {
+      setDirection("up");
+    }
+    lastScroll = currentScroll;
+    setScroll(currentScroll);
+  };
+
+  const sectionHandler = () => {
+    if(currentSection && isScrolledIntoView(currentSection)) {
+      setIsViewport(true)
+    } else {
+      setIsViewport(false);
+    }
+  }
 
   useEffect(() => {
     const scrollHandler = (e) => {
-      
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        return;
-      }
-      if (currentScroll > lastScroll) {
-       setDirection("down")
-      } else if (currentScroll < lastScroll) {
-       setDirection("up")
-      }
-      lastScroll = currentScroll;
-      setScroll(currentScroll);
+      directionHandler();
+      sectionHandler()
     };
     document.addEventListener("scroll", scrollHandler);
     return () => {
       document.removeEventListener("scroll", scrollHandler);
-    }
+    };
   }, []);
 
   return {
     direction,
-    currentScroll: scroll
+    currentScroll: scroll,
+    isInViewport
   };
 };
 
-export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")) => {
+export const useCountDown = (
+  countdownDate = new Date("April 14, 2022 15:00:00")
+) => {
   const [hours, setHours] = useState(0);
   const [days, setDays] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -99,7 +127,6 @@ export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")
     }
   };
 
-
   useEffect(() => {
     timeInterval = setInterval(timePass, 1000);
   }, []);
@@ -108,6 +135,6 @@ export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")
     hours,
     days,
     minutes,
-    seconds
-  }
-}
+    seconds,
+  };
+};
