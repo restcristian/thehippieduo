@@ -1,5 +1,6 @@
-import * as React from "react"
+import React, {useState} from "react"
 import HashTagLink from "../components/HashTagLink"
+import LoadingScreen from "../components/LoadingScreen"
 import Nav from "../components/Nav"
 import ScrollButton from "../components/ScrollButton"
 import Banner from "../sections/Home/Banner"
@@ -14,8 +15,10 @@ import '../shared/reset.scss'
 
 // markup
 const IndexPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <main>
+      <LoadingScreen isLoading ={isLoading} />
       <header>
         <Nav />
       </header>
