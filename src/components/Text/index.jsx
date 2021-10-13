@@ -12,7 +12,7 @@ const Text = ({ children, fontWeight = "regular", className, ...rest }) => {
 export const HeaderText = ({children, className, ...rest}) => {
     return (
         <h2 {...rest} className = {`text--header ${className}`}>
-            <Text>{children}</Text>
+            <Text {...rest}>{children}</Text>
         </h2>
     )
 }

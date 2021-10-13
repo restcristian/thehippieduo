@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
+
 import "./Button.scss";
 const Button = ({
   type = "button",
@@ -8,20 +10,32 @@ const Button = ({
   animationDirection = "right",
   isLink = false,
   redirectTo = undefined,
+  isExternal = true,
   ...rest
 }) => {
-
-  if(isLink) {
-    return (
-      <a
-      {...rest}
-      href = {redirectTo}
-      target = "_blank"
-      className={`button ${className} button--link button--${size} button--direction-${animationDirection}`}
-    >
-      {children}
-    </a>
-    )
+  if (isLink) {
+    if (isExternal) {
+      return (
+        <a
+          {...rest}
+          href={redirectTo}
+          target="_blank"
+          className={`button ${className} button--link button--${size} button--direction-${animationDirection}`}
+        >
+          {children}
+        </a>
+      );
+    } else {
+      return (
+        <Link
+          {...rest}
+          to={redirectTo}
+          className={`button ${className} button--link button--${size} button--direction-${animationDirection}`}
+        >
+          {children}
+        </Link>
+      );
+    }
   }
   return (
     <button
