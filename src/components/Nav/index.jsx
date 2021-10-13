@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button";
 import Grid from "../Grid";
 import Text from "../Text";
@@ -45,6 +45,14 @@ const Nav = () => {
     }
     scrollTo(document.documentElement, toSelector.offsetTop, 200);
   };
+
+  useEffect(() => {
+    if(isNavigationOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isNavigationOpen]);
 
   return (
     <nav className={`nav ${isNavigationOpen ? "nav--open" : ""}`}>
