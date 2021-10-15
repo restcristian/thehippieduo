@@ -5,7 +5,7 @@ class HippieDuoService {
     }
 
     async sendRSVP(data) {
-        const response = await fetch(`${this.baseUrl}/contact`,{
+        const response = await fetch(`${this.baseUrl}/rsvp`,{
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify(data),
