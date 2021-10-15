@@ -1,9 +1,14 @@
 const express = require('express');
+const nodemailer = require('nodemailer');
 const cors = require('cors');
-require('dotenv');
+require('dotenv').config();
 const {
     Client
 } = require('pg')
+
+const {
+    createTransport
+} = nodemailer;
 
 const app = express();
 const PORT = process.env.PORT || 9090;
@@ -27,9 +32,18 @@ const client = new Client({
 
 client.connect().catch(error => {
     console.log(error)
+});
+
+const transporter = createTransport({
+    service: "hotmail",
+    auth: {
+        user: process.env.MAILER_EMAIL,
+        pass: process.env.MAILER_PASSWORD
+    }
 })
 
-app.post('/contact', async (req, res) => {
+
+app.post('/save', async (req, res) => {
     const {
         name,
         email,
@@ -51,5 +65,37 @@ app.post('/contact', async (req, res) => {
         throw error;
     }
 });
+
+app.post('/rsvp', async (req, res) => {
+    const {
+        name,
+        email,
+        message,
+        song = ''
+    } = req.body;
+
+    const options = {
+        from: `${process.env.MAILER_EMAIL} `,
+        to: 'cristian.restituyo@gmail.com',
+        subject: `RSVP from ${name} <${email}>`,
+        html: `
+            <b>Recommended song</b>:${song}</br>
+            <p>${message}</p>
+            `
+    }
+
+    try {
+        const response = await transporter.sendMail(options)
+        res.send({
+            response
+        });
+    } catch (error) {
+        res.sendStatus(500);
+        console.error(error);
+    }
+
+});
+
+
 
 app.listen(PORT, () => console.log(`listening on port: ${PORT}`))

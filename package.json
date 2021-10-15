@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "server:start": "node server/index.js",
-    "server:dev": "nodemon server/index.js"
+    "server:dev": "NODE_ENV=development nodemon server/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -29,6 +29,7 @@
     "gatsby-transformer-sharp": "^3.10.0",
     "gsap": "^3.8.0",
     "leaflet": "^1.7.1",
+    "nodemailer": "^6.7.0",
     "pg": "^8.7.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
