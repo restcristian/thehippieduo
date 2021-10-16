@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import Countdown from "../../../components/Countdown";
 import Grid from "../../../components/Grid";
 import Text, { HeaderText } from "../../../components/Text";
+import { generateCalendarEventLink } from "../../../shared/utils";
 import "./SaveTheDate.scss";
 
 const SaveTheDate = () => {
@@ -25,7 +26,7 @@ const SaveTheDate = () => {
             <div className = "saveTheDate__countdownColumnWrapper">
               <Countdown />
               <div className="saveTheDate__addToCalendar">
-                <Button>
+                <Button isLink isExternal redirectTo = {generateCalendarEventLink()}>
                   <Text>Añade al calendario</Text>
                 </Button>
               </div>

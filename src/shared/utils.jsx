@@ -111,3 +111,13 @@ export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")
     seconds
   }
 }
+
+export const generateCalendarEventLink = () => {
+  const event = {
+    name: 'Boda+de+Andrys+y+Cristian',
+    date: '20220414/20220415',
+    details: '',
+    location: 'Av+Sarasota,+No.+65,Santo+Domingo+República+Dominicana'
+  }
+  return `https://calendar.google.com/calendar/u/0/r/eventedit?text=${event.name}&dates=${event.date}&details=${event.details}&location=${event.location}&sf=false`
+}
