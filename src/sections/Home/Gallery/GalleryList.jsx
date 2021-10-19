@@ -43,31 +43,31 @@ const items = [
   },
   // the other 5
   {
-    imgLabel: "Fotos de los novios",
+    imgLabel: "detalles de la boda",
     coverColor: "#DBAB9D",
     hoverLabel: "post-boda raww",
     description: "Bellos recuerdos,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "ceremonia boda",
+    imgLabel: "getting ready",
     coverColor: "#605C36",
     hoverLabel: "post-boda raww",
     description: "El cortejo en pinta,<br/>Habitación Nupcial",
   },
   {
-    imgLabel: "la fiesta de los 70s",
+    imgLabel: "video recepción",
     coverColor: "#DBAB9D",
     hoverLabel: "post-boda raww",
     description: "Recepción boda,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "disfrutando el proceso",
+    imgLabel: "first look",
     coverColor: "#8A1619",
     hoverLabel: "post-boda raww",
     description: "Primeras impresiones,<br/>Anywhere",
   },
   {
-    imgLabel: "video ceremonia",
+    imgLabel: "un detalle especial",
     coverColor: "#FEFFEF",
     hoverLabel: "post-boda raww",
     hoverLabelColor: "#605C36",
