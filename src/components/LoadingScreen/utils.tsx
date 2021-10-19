@@ -1,8 +1,17 @@
 export const getSplittedText = () => {
     const text = `Los mejores momentos de la vida se disfrutan aún más cuando se comparten con tus seres queridos.`;
-    const regEx = /[\w\.,áéíóúß\s]/g;
-    const regEx2 = /\w+/g;
-    const newText = text.replace(regEx, (char) => {
+   
+    const words = text.split(' ');
+
+    return words.map(word => {
+      return `<span class = "word">${getSplittedWord(word)}</span>`;
+    }).join(' ');
+    
+  };
+
+  const getSplittedWord = (word) => {
+    const letterRegex = /[\w\.,áéíóúß\s]/g;
+    const newWord = word.replace(letterRegex, (char) => {
       let inside;
       switch (char.trim()) {
         case "":
@@ -14,5 +23,5 @@ export const getSplittedText = () => {
       }
       return `<span class = "char animating ${char.trim() === "" ? 'space' : ''}">${inside}</span>`;
     });
-    return newText;
-  };
+    return newWord;
+  }

@@ -50,9 +50,10 @@ table {
 body {
 	background-color: $color-alabaster;
 
-	&.isModalOpen {
+	&.isModalOpen, &.isLoading {
 		overflow-y: hidden;
 	}
+
 }
 
 .leaflet-touch .leaflet-control-attribution {

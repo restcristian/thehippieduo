@@ -6,12 +6,18 @@ import { getSplittedText } from "./utils";
 
 const LoadingScreen = ({ isLoading, setIsLoading }) => {
   const textRef = useRef(null);
+  const containerRef = useRef(null);
+  const percentageRef = useRef(null);
+
   const [percentage, setPercentage] = useState(0);
   let mainTL = gsap.timeline({ paused: true });
+
   useEffect(() => {
     const charsContainer = textRef.current;
     const charsDOM = charsContainer.querySelectorAll(".char");
-    
+
+    document.body.classList.add('isLoading')
+
     mainTL.set(charsContainer, { autoAlpha: 1 }).fromTo(
       charsContainer,
       {
@@ -38,11 +44,6 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
               ease: "back.inOut",
               stagger: 0.015,
               y: "0%",
-              onComplete: function() {
-                charsDOM.forEach(charDOM => {
-                  charDOM.classList.add('stopAnimating');
-                })
-              }
             }
           );
         },
@@ -54,25 +55,36 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
     mainTL.play();
   }, []);
 
+  const getReversedTL = () => {
+    const charsContainer = textRef.current;
+    const container = containerRef.current;
+    const percentageContainer = percentageRef.current
+
+    let reversedMainTL = gsap.timeline();
+    return reversedMainTL
+      .to([charsContainer, container, percentageContainer], {
+        autoAlpha: 0,
+        duration: 1,
+        delay: 0.5,
+        onComplete: () => document.body.classList.remove('isLoading')
+      })
+      
+  };
+
   useEffect(() => {
     let count = { val: 0 };
-   
+
     gsap.to(count, {
-      duration: 5,
+      duration: 10,
       val: 100,
       roundProps: "val",
       onUpdate: () => setPercentage(count.val),
-      onComplete: () => {
-        console.log('finished')
-        // mainTL.timeScale(1).reverse()
-      }
+      onComplete: () => getReversedTL(),
     });
-
-    
   }, []);
 
   return (
-    <div className="loadingScreen">
+    <div className="loadingScreen" ref={containerRef}>
       <div className="loadingScreen__wrapper">
         <Text className="loadingScreen__text">
           <span
@@ -80,7 +92,9 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
             dangerouslySetInnerHTML={{ __html: getSplittedText() }}
           />
         </Text>
-        <Text className="loadingScreen__percentage">{percentage}%</Text>
+        <div ref = {percentageRef}>
+          <Text className="loadingScreen__percentage">{percentage}%</Text>
+        </div>
       </div>
     </div>
   );
