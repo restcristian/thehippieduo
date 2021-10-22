@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    display: none; // remove this when working on loadinScreen
+    // display: none; // remove this when working on loadinScreen
     
 
     &__text {
@@ -44,6 +44,11 @@
             opacity: 0;
             visibility: hidden;
             word-break: break-word;
+        }
+
+        .word {
+            position: relative;
+            display: inline-block;
         }
 
         .char {
