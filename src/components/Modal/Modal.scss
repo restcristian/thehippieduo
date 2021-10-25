@@ -1,65 +1,89 @@
 @import "../../shared/colors";
+@import "../../shared/breakpoints";
+
+$tablet-bp: 1590px;
+
 .modal {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: 50;
-  transition:  top .2s ease-in-out, transform .2s ease-in-out, opacity .2s ease-in-out, visibility .2s ease-in-out;
+  z-index: 300;
+  transition: top 0.2s ease-in-out, transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
   opacity: 0;
   visibility: hidden;
 
+  @media (max-width: $tablet-bp) {
+    width: 100%;
+  }
+
   &--isOpen {
-      opacity: 1;
-      visibility: visible;
-      top: 50%;
-      transform:translate(-50%, -50%)
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $color-bridesmaid 0% 0% no-repeat padding-box;
-      
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bridesmaid;
+
+    opacity: 1;
+  }
+
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease-in-out;
+
+    &--isOpen {
       opacity: 1;
+      visibility: visible;
+    }
   }
   &__wrapper {
     position: relative;
     border: 1px solid $color-calico;
-    padding: 24px;
+    padding: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(35px);
     text-align: center;
-    padding: 130px 80px;
   }
   &__closeBtn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: none;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    color: $color-faulred;
+    cursor: pointer;
+    svg {
+      width: 100%;
+      height: auto;
+    }
+    span {
       position: absolute;
-      top: 24px;
-      right: 24px;
-      border:none;
-      appearance: none;
-      padding:0;
-      margin:0;
-      width: 18px;
-      height: 18px;
-      background-color: transparent;
-      color: $color-faulred;
-      cursor: pointer;
-      svg {
-          width: 100%;
-          height: auto;
-      }
-      span {
-          position: absolute;
-          top:-999999px;
-          left: -999999px;
-
-      }
+      top: -999999px;
+      left: -999999px;
+    }
   }
 }

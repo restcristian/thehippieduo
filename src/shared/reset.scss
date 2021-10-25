@@ -51,7 +51,7 @@ body {
 	background-color: $color-alabaster;
 
 	&.isModalOpen, &.isLoading {
-		overflow-y: hidden;
+		overflow-y: hidden !important;
 	}
 
 }
