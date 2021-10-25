@@ -6,70 +6,70 @@ import "./Gallery.scss";
 
 const items = [
   {
-    imgLabel: "Fotos de los novios",
+    imgLabel: "Fotos de los<br/>novios",
     coverColor: "#605C36",
     coverImage: sessionImg,
-    hoverLabel: "Fotos de los novios",
+    hoverLabel: "Fotos de los<br/>novios",
     description:
       "Fotos del compromiso,<br/>Jardín Botánico,<br/>PH. Eduardo Cipion",
   },
   {
-    imgLabel: "ceremonia boda",
+    imgLabel: "ceremonia<br/>boda",
     coverColor: "#ab3f0e",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
 
     description: "Ceremonia boda,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "la fiesta de los 70s",
+    imgLabel: "la fiesta<br/>de los 70s",
     coverColor: "#8a1619",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
 
     description: "Recepción boda,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "disfrutando el proceso",
+    imgLabel: "disfrutando<br/>el proceso",
     coverColor: "#455437",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
 
     description: "Preparativos gran día,<br/>Anywhere",
   },
   {
-    imgLabel: "video ceremonia",
+    imgLabel: "video<br/>ceremonia",
     coverColor: "#e3c69b",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
 
     description: "Ceremonia boda,<br/>Hotel El Embajador",
   },
   // the other 5
   {
-    imgLabel: "detalles de la boda",
+    imgLabel: "detalles<br/>de la boda",
     coverColor: "#DBAB9D",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
     description: "Bellos recuerdos,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "getting ready",
+    imgLabel: "getting<br/>ready",
     coverColor: "#605C36",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
     description: "El cortejo en pinta,<br/>Habitación Nupcial",
   },
   {
-    imgLabel: "video recepción",
+    imgLabel: "video<br/>recepción",
     coverColor: "#DBAB9D",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
     description: "Recepción boda,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "first look",
+    imgLabel: "first<br/>look",
     coverColor: "#8A1619",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
     description: "Primeras impresiones,<br/>Anywhere",
   },
   {
-    imgLabel: "un detalle especial",
+    imgLabel: "un detalle<br/>especial",
     coverColor: "#FEFFEF",
-    hoverLabel: "post-boda raww",
+    hoverLabel: "post-boda<br/>raww",
     hoverLabelColor: "#605C36",
     description: "El detalle especial,<br/>Ceremonia",
   },
@@ -95,14 +95,18 @@ const GalleryList = () => {
               <div
                 className="gallery__img"
                 style={{
-                  ...(item?.coverImage && { backgroundImage: `url(${item.coverImage})` }),
+                  ...(item?.coverImage && {
+                    backgroundImage: `url(${item.coverImage})`,
+                  }),
                 }}
               >
                 {" "}
               </div>
             )}
             <div className="gallery__imgLabelContainer">
-              <Text className="gallery__imgLabel">{item.imgLabel}</Text>
+              <Text className="gallery__imgLabel">
+                <span dangerouslySetInnerHTML={{ __html: item.imgLabel }} />
+              </Text>
               <Text
                 className="gallery__imgLabel gallery__imgLabelHover"
                 style={{
@@ -111,7 +115,7 @@ const GalleryList = () => {
                   }),
                 }}
               >
-                {item.hoverLabel}
+                <span dangerouslySetInnerHTML={{ __html: item.hoverLabel }} />
               </Text>
             </div>
           </div>
