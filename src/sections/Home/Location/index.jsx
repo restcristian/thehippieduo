@@ -16,7 +16,7 @@ const Location = () => {
     const myMap = map(mapRef.current).setView([18.454764, -69.933219], 80)
 
     tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
       {
         maxZoom: 17,
         attribution:
