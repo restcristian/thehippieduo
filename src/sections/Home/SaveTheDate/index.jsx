@@ -27,7 +27,7 @@ const SaveTheDate = () => {
               <Countdown />
               <div className="saveTheDate__addToCalendar">
                 <Button isLink isExternal redirectTo = {generateCalendarEventLink()}>
-                  <Text>Añade al calendario</Text>
+                  <Text fontWeight = "bold">Añade al calendario</Text>
                 </Button>
               </div>
             </div>

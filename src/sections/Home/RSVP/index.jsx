@@ -69,7 +69,7 @@ const RSVP = () => {
                 />
                 <div className="rsvp__submitContainer">
                   <Button className="rsvp__submitButton" type="submit">
-                    <Text>Enviar</Text>
+                    <Text fontWeight="bold">Envía</Text>
                   </Button>
                 </div>
               </form>

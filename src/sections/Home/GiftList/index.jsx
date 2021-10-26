@@ -31,7 +31,7 @@ const GiftList = () => {
               isLink
               redirectTo="https://www.amazon.de/wedding/share/thehippieduo"
             >
-              <Text>Ver Lista de Regalos</Text>
+              <Text fontWeight="bold">Ver Lista de Regalos</Text>
             </Button>
           </div>
         </div>
