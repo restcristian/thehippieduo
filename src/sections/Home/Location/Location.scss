@@ -14,6 +14,7 @@
   &__map {
     width: 60%;
     height: 673px;
+    filter:grayscale(1);
 
     @media (max-width: $desktopMax) {
       display: block;
