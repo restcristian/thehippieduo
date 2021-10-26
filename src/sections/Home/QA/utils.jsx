@@ -70,7 +70,7 @@ export const qaItems = [
   {
     question:
       "¿Hasta cuándo debo de enviarles mi respuesta de si asistiré a la boda?",
-    answer: "Tienes hasta el 1 de Febrero para confirmarnos tu asistencia.",
+    answer: "Tienes hasta el 20 de Febrero para confirmarnos tu asistencia.",
   },
   {
     question: "¿Puedo llevar niños/as?",
