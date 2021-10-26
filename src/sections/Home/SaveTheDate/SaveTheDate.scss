@@ -1,76 +1,79 @@
-@import '../../../shared/colors';
-@import '../../../shared/mixins';
-@import '../../../shared/breakpoints';
-
+@import "../../../shared/colors";
+@import "../../../shared/mixins";
+@import "../../../shared/breakpoints";
 
 .saveTheDate {
-    background-color: $color-calico;
+  background-color: $color-calico;
 
-    &__wrapper {
-        background-image: url('../../../images/seventies@2x.png');
-        background-size: 822px 265px;
-        background-position: 0 center;
-        background-repeat: no-repeat;
-        padding: 114px 0px;
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
 
-        display: flex;
-        width: 100%;
-        align-items: center;
-        
-
-        @media(max-width: $desktopMax) {
-            display: block;
-            padding: 42px 0 52px 0;
-            background-position: center center;
-            background-size: contain;
-        }
+    @media (max-width: $desktopMax) {
+      display: block;
+      background-image: url("../../../images/seventies@2x.png");
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
+  }
 
-    &__column {
-        width: 50%;
-        text-align: center;
+  &__column {
+    width: 50%;
+    text-align: center;
+    padding: 114px 0px;
 
-        @media(max-width: $desktopMax) {
-            width: 100%;
-        }
+    @media (max-width: $desktopMax) {
+      width: 100%;
+      padding-bottom: 0;
     }
+  }
 
-    &__columnLeft{
-        padding-right: 24px;
+  &__columnLeft {
+    padding-right: 24px;
+    background-image: url("../../../images/seventies@2x.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @media (max-width: $desktopMax) {
+      padding-top: 42px;
+      background: none;
     }
+  }
 
-    &__countdownColumn {
-        display: flex;
-        justify-content: flex-end;
+  &__countdownColumn {
+    display: flex;
+    justify-content: flex-end;
 
-        @media(max-width: $desktopMax) {
-            justify-content: center;
-            padding-top: 40px;
-        }
+    @media (max-width: $desktopMax) {
+      justify-content: center;
+      padding-top: 40px;
+      padding-bottom: 52px;
     }
+  }
 
-    &__countdownColumnWrapper {
-        text-align: center;
-    }
+  &__countdownColumnWrapper {
+    text-align: center;
+  }
 
-    &__title {
-        text-transform: none;
-        color: $color-white;
-        @include fluid-type( 1024px, 1920px, 40px, 100px);
-        line-height: 1;
-    }
+  &__title {
+    text-transform: none;
+    color: $color-white;
+    @include fluid-type(1024px, 1920px, 40px, 100px);
+    line-height: 1;
+  }
 
-    &__description {
-        font-size: 16px;
-        line-height: 30px;
-        color: $color-verdigris;
-        max-width: 400px;
-        margin: 0 auto;
+  &__description {
+    font-size: 16px;
+    line-height: 30px;
+    color: $color-verdigris;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-    }
-
-    &__addToCalendar{
-        text-align: center;
-        margin-top: 36px;
-    }
+  &__addToCalendar {
+    text-align: center;
+    margin-top: 36px;
+  }
 }
