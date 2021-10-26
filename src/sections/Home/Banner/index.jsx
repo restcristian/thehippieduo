@@ -40,7 +40,7 @@ const Banner = () => {
             </p>
             <div className="banner__buttonContainer">
               <Button onClick = {() => onClickConfirm()} className = "banner__button">
-                <Text>Confirma Asistencia</Text>
+                <Text fontWeight = "bold">Confirma Asistencia</Text>
               </Button>
             </div>
           </div>

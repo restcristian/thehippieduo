@@ -68,7 +68,7 @@ const HashTagLink = () => {
             >
               <div className="hashTagLink__buttonWrapper">
                 <Instragram />
-                <Text>Instagram</Text>
+                <Text fontWeight="bold">Instagram</Text>
               </div>
             </Button>
             <Button
@@ -79,7 +79,7 @@ const HashTagLink = () => {
             >
               <div className="hashTagLink__buttonWrapper">
                 <Facebook />
-                <Text>Facebook</Text>
+                <Text fontWeight="bold">Facebook</Text>
               </div>
             </Button>
           </div>
