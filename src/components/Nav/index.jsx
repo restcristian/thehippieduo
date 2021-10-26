@@ -80,7 +80,7 @@ const Nav = () => {
                   onItemClickHandler(null, true);
                 }}
               >
-                <Text>rsvp</Text>
+                <Text fontWeight="bold">rsvp</Text>
               </Button>
             </li>
           </ul>
