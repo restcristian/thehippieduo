@@ -23,7 +23,7 @@ const NotFoundPage = () => {
         </p>
         <div className="notFound__buttonWrapper">
           <Button isLink redirectTo="/" isExternal={false}>
-            <Text>Sí, Llévame al inicio</Text>
+            <Text fontWeight="bold">Sí, Llévame al inicio</Text>
           </Button>
         </div>
       </div>
