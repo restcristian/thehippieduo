@@ -12,7 +12,7 @@ $lg-bp: 2046px;
   align-items: center;
   height: 18px;
 
-  @media(max-width: $lg-bp){
+  @media (max-width: $lg-bp) {
     left: 0;
   }
 
@@ -76,7 +76,6 @@ $lg-bp: 2046px;
   &__modalWrapper {
     @media (max-width: 999px) {
       padding: 70px;
-      max-height: 500px;
       overflow: scroll;
     }
     @media (max-width: 540px) {
