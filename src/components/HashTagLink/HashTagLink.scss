@@ -1,4 +1,7 @@
 @import "../../shared/colors";
+
+$lg-bp: 2046px;
+
 .hashTagLink {
   position: fixed;
   z-index: 20;
@@ -8,6 +11,10 @@
   justify-content: center;
   align-items: center;
   height: 18px;
+
+  @media(max-width: $lg-bp){
+    left: 0;
+  }
 
   &__wrapper {
     position: relative;
