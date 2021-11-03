@@ -26,6 +26,9 @@ const GoodBye = () => {
               más especial. ¡Gracias, allá nos vemos!
             </Text>
           </p>
+          <p className="goodbye__signature">
+            <Text>Hecho con ♥ por Andrys & Cristian</Text>
+          </p>
         </div>
       </Grid>
     </section>
