@@ -16,7 +16,7 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
     const charsContainer = textRef.current;
     const charsDOM = charsContainer.querySelectorAll(".char");
 
-    document.body.classList.add('isLoading')
+    document.body.classList.add("isLoading");
 
     mainTL.set(charsContainer, { autoAlpha: 1 }).fromTo(
       charsContainer,
@@ -56,17 +56,15 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
   const getReversedTL = () => {
     const charsContainer = textRef.current;
     const container = containerRef.current;
-    const percentageContainer = percentageRef.current
+    const percentageContainer = percentageRef.current;
 
     let reversedMainTL = gsap.timeline();
-    return reversedMainTL
-      .to([charsContainer, container, percentageContainer], {
-        autoAlpha: 0,
-        duration: 1,
-        delay: 0.5,
-        onComplete: () => document.body.classList.remove('isLoading')
-      })
-      
+    return reversedMainTL.to([charsContainer, container, percentageContainer], {
+      autoAlpha: 0,
+      duration: 1,
+      delay: 0.5,
+      onComplete: () => document.body.classList.remove("isLoading"),
+    });
   };
 
   useEffect(() => {
@@ -77,7 +75,21 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
       val: 100,
       roundProps: "val",
       onUpdate: () => setPercentage(count.val),
-      onComplete: () => getReversedTL(),
+      onComplete: () => {
+        Promise.all(
+          Array.from(document.images)
+            .filter((img) => !img.complete)
+            .map(
+              (img) =>
+                new Promise((resolve) => {
+                  img.onload = img.onerror = resolve;
+                })
+            )
+        ).then(() => {
+          console.log("images finished loading");
+          getReversedTL();
+        });
+      },
     });
   }, []);
 
@@ -90,7 +102,7 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
             dangerouslySetInnerHTML={{ __html: getSplittedText() }}
           />
         </Text>
-        <div ref = {percentageRef}>
+        <div ref={percentageRef}>
           <Text className="loadingScreen__percentage">{percentage}%</Text>
         </div>
       </div>
