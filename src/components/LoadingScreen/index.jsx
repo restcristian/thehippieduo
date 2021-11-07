@@ -10,7 +10,7 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
   const percentageRef = useRef(null);
 
   const [percentage, setPercentage] = useState(0);
-  let mainTL = gsap.timeline({ paused: true });
+  let mainTL = gsap.timeline();
 
   useEffect(() => {
     const charsContainer = textRef.current;
@@ -51,8 +51,6 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
         y: "0%",
       }
     );
-
-    mainTL.play();
   }, []);
 
   const getReversedTL = () => {
