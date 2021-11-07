@@ -37,7 +37,7 @@ $bp-medium: 600px;
     width: calc(100% - 48px);
 
     @media (max-width: $bp-medium) {
-      max-width: 442px;
+      max-width: 200px;
       width: 100%;
       opacity: 1;
     }
