@@ -1,8 +1,22 @@
-import React from "react";
-import Text from "../../../components/Text";
+import React, { useState } from "react";
+import Img from "../../../components/Img";
+import Modal from "../../../components/Modal";
 import sessionImg from "../../../images/session.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 import "./Gallery.scss";
+import GalleryItem from "./GalleryItem";
+import andryscristian1 from "../../../images/novios/Andrys&Cristian1.jpg";
+import andryscristian2 from "../../../images/novios/Andrys&Cristian2.jpg";
+import andryscristian3 from "../../../images/novios/Andrys&Cristian3.jpg";
+import andryscristian4 from "../../../images/novios/Andrys&Cristian4.jpg";
+import andryscristian6 from "../../../images/novios/Andrys&Cristian6.jpg";
+import andryscristian7 from "../../../images/novios/Andrys&Cristian7.jpg";
+import andryscristian8 from "../../../images/novios/Andrys&Cristian8.jpg";
+import andryscristian9 from "../../../images/novios/Andrys&Cristian9.jpg";
+import andryscristian10 from "../../../images/novios/Andrys&Cristian10.jpg";
 
 const items = [
   {
@@ -12,6 +26,46 @@ const items = [
     hoverLabel: "Fotos de los<br/>novios",
     description:
       "Fotos del compromiso,<br/>Jardín Botánico,<br/>PH. Eduardo Cipion",
+    gallery: {
+      images: [
+        {
+          label: 'image 1',
+          image: andryscristian1,
+        },
+        {
+          label: 'image 2',
+          image: andryscristian2,
+        },
+        {
+          label: 'image 3',
+          image: andryscristian3
+        },
+        {
+          label: 'image 4',
+          image: andryscristian4
+        }, 
+        {
+          label: 'image 6',
+          image: andryscristian6
+        },
+        {
+          label: 'image 7',
+          image: andryscristian7
+        }, 
+        {
+          label: 'image 8',
+          image: andryscristian8
+        },
+        {
+          label: 'image 9',
+          image: andryscristian9
+        },
+        {
+          label: 'image 10',
+          image: andryscristian10
+        }
+      ],
+    },
   },
   {
     imgLabel: "ceremonia<br/>boda",
@@ -75,59 +129,50 @@ const items = [
   },
 ];
 
-const GalleryList = () => {
-  return (
-    <ul className="gallery__list">
-      {items.map((item, index) => (
-        <li className="gallery__item" key={`galley__item-${index}`}>
-          <div
-            className={`gallery__imgContainer ${
-              item.coverImage ? "" : "gallery__imgContainer--noImg"
-            }`}
-          >
-            <div
-              className="gallery__coverBG"
-              style={{
-                backgroundColor: item.coverColor,
-              }}
-            ></div>
-            {item.coverImage && (
-              <div
-                className="gallery__img"
-                style={{
-                  ...(item?.coverImage && {
-                    backgroundImage: `url(${item.coverImage})`,
-                  }),
-                }}
-              >
-                {" "}
-              </div>
-            )}
-            <div className="gallery__imgLabelContainer">
-              <Text className="gallery__imgLabel">
-                <span dangerouslySetInnerHTML={{ __html: item.imgLabel }} />
-              </Text>
-              <Text
-                className="gallery__imgLabel gallery__imgLabelHover"
-                style={{
-                  ...(item?.hoverLabelColor && {
-                    color: item.hoverLabelColor,
-                  }),
-                }}
-              >
-                <span dangerouslySetInnerHTML={{ __html: item.hoverLabel }} />
-              </Text>
-            </div>
-          </div>
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 
-          <Text className="gallery__description">
-            <span
-              dangerouslySetInnerHTML={{ __html: item?.description }}
-            ></span>
-          </Text>
-        </li>
-      ))}
-    </ul>
+const GalleryList = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState();
+  return (
+    <>
+      <ul className="gallery__list">
+        {items.map((item, index) => (
+          <GalleryItem
+            key={`gallery__item-${index}`}
+            item={item}
+            onClick={() => {
+              if (item.gallery) {
+                setCurrentItem(item);
+                setIsModalOpen(true);
+              }
+            }}
+          />
+        ))}
+      </ul>
+      <Modal isOpen={isModalOpen} onClose = {() => {
+        setCurrentItem(null);
+        setIsModalOpen(false);
+      }}>
+        <div className="gallery__slider">
+          <Slider {...settings}>
+            {currentItem?.gallery?.images?.map((item, index) => {
+              return (
+                <div key={index}>
+                  <Img src={item.image} alt = {item.label} />
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
+      </Modal>
+    </>
   );
 };
 
