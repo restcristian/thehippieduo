@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+export const isBrowser = () => typeof window !== "undefined";
+
 export const scrollTo = (element, to, duration) => {
   if (duration <= 0) return;
   const difference = to - element.scrollTop;
@@ -18,10 +20,10 @@ export const isInViewport = (element) => {
     rect.bottom > 0 &&
     rect.right > 0 &&
     rect.left <
-      (window.innerWidth ||
+      (isBrowser() && window.innerWidth ||
         document.documentElement.clientWidth) /* or $(window).width() */ &&
     rect.top <
-      (window.innerHeight ||
+      (isBrowser() && window.innerHeight ||
         document.documentElement.clientHeight) /* or $(window).height() */
   );
 };
@@ -35,7 +37,7 @@ export const formatTime = (time) => {
 
 export const useScrollDirection = () => {
   const [direction, setDirection] = useState("");
-  const [scroll, setScroll] = useState(window.pageYOffset);
+  const [scroll, setScroll] = useState(isBroswer() && window.pageYOffset);
  
   let lastScroll = 0;
 
