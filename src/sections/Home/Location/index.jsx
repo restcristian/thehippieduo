@@ -1,42 +1,35 @@
-import React, { useEffect, useRef } from "react";
-
-import { map, tileLayer, marker, divIcon } from "leaflet";
+import React from "react";
+import { divIcon } from "leaflet";
+import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import Text, { HeaderText } from "../../../components/Text";
 import "./Location.scss";
 import { isBrowser } from "../../../shared/utils";
 
 const Location = () => {
-  const mapRef = useRef(null);
 
   const renderMarker = () => (
     `<div className = "location__marker">
 
     </div>`
   )
-  useEffect(() => {
-   if(isBrowser()){
-    const myMap = map(mapRef.current).setView([18.454764, -69.933219], 80)
-
-    tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      {
-        maxZoom: 17,
-        attribution:
-          '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-      }
-    ).addTo(myMap);
-
-    marker([18.454764, -69.933219], {icon: divIcon({className: 'location__marker', html: renderMarker() }) })
-      .addTo(myMap)
-      .bindPopup("<b>Hotel Embajador</b></br>")
-      .openPopup();
-   }
-  }, []);
 
   return (
     <section className="location">
       <div className="location__row">
-        {isBrowser() && (<div ref={mapRef} className="location__map"></div>)}
+        {isBrowser() && (
+          <MapContainer className = "location__map" center = {{lat: 18.454764, lng: -69.933219 }} zoom= {80} >
+            <TileLayer 
+              url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' 
+              maxZoom={17}
+              />
+            <Marker position = {[18.454764, -69.933219]} icon ={divIcon({className: 'location__marker', html: renderMarker() })}>
+              <Popup>
+                <b>Hotel Embajador</b>
+              </Popup>
+            </Marker>
+          </MapContainer>
+        )}
         <div className="location__infoCol">
           <HeaderText className="location__title">Ubicación</HeaderText>
           <Text className="location__description">
