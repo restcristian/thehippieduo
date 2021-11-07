@@ -1,7 +1,7 @@
 class HippieDuoService {
     baseUrl = ''
     constructor() {
-        this.baseUrl = "http://localhost:9090";
+        this.baseUrl = "https://hippieduo-backend.herokuapp.com";
     }
 
     async sendRSVP(data) {
