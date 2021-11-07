@@ -71,24 +71,25 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
     let count = { val: 0 };
 
     gsap.to(count, {
-      duration: 10,
+      duration: 13,
       val: 100,
       roundProps: "val",
       onUpdate: () => setPercentage(count.val),
       onComplete: () => {
-        Promise.all(
-          Array.from(document.images)
-            .filter((img) => !img.complete)
-            .map(
-              (img) =>
-                new Promise((resolve) => {
-                  img.onload = img.onerror = resolve;
-                })
-            )
-        ).then(() => {
-          console.log("images finished loading");
-          getReversedTL();
-        });
+        getReversedTL();
+        // Promise.all(
+        //   Array.from(document.images)
+        //     .filter((img) => !img.complete)
+        //     .map(
+        //       (img) =>
+        //         new Promise((resolve) => {
+        //           img.onload = img.onerror = resolve;
+        //         })
+        //     )
+        // ).then(() => {
+        //   console.log("images finished loading");
+          
+        // });
       },
     });
   }, []);
