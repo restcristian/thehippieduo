@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { map, tileLayer, marker, divIcon } from "leaflet";
 import Text, { HeaderText } from "../../../components/Text";
 import "./Location.scss";
+import { isBrowser } from "../../../shared/utils";
 
 const Location = () => {
   const mapRef = useRef(null);
@@ -13,6 +14,7 @@ const Location = () => {
     </div>`
   )
   useEffect(() => {
+   if(isBrowser()){
     const myMap = map(mapRef.current).setView([18.454764, -69.933219], 80)
 
     tileLayer(
@@ -28,12 +30,13 @@ const Location = () => {
       .addTo(myMap)
       .bindPopup("<b>Hotel Embajador</b></br>")
       .openPopup();
+   }
   }, []);
 
   return (
     <section className="location">
       <div className="location__row">
-        <div ref={mapRef} className="location__map"></div>
+        {isBrowser() && (<div ref={mapRef} className="location__map"></div>)}
         <div className="location__infoCol">
           <HeaderText className="location__title">Ubicación</HeaderText>
           <Text className="location__description">

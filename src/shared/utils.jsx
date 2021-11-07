@@ -20,10 +20,10 @@ export const isInViewport = (element) => {
     rect.bottom > 0 &&
     rect.right > 0 &&
     rect.left <
-      (isBrowser() && window.innerWidth ||
+      ((isBrowser() && window.innerWidth) ||
         document.documentElement.clientWidth) /* or $(window).width() */ &&
     rect.top <
-      (isBrowser() && window.innerHeight ||
+      ((isBrowser() && window.innerHeight) ||
         document.documentElement.clientHeight) /* or $(window).height() */
   );
 };
@@ -37,7 +37,7 @@ export const formatTime = (time) => {
 
 export const useScrollDirection = () => {
   const [direction, setDirection] = useState("");
-  const [scroll, setScroll] = useState(isBroswer() && window.pageYOffset);
+  const [scroll, setScroll] = useState(isBrowser() && window.pageYOffset);
  
   let lastScroll = 0;
 
