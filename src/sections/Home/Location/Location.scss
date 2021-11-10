@@ -54,23 +54,13 @@
   }
 
   &__marker {
-    width: 50px;
-    height: 50px;
+    width: 50px !important;
+    height: 50px !important;
     border-radius: 50%;
     position: relative;
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 25px 12.5px 0 12.5px;
-      border-color:  $color-faulred transparent transparent transparent;
-    }
+    background-image: url('../../../images/banner@2x.png');
+    background-size: cover;
+    border: 3px solid $color-faulred;
   }
 
   .leaflet-pane {
