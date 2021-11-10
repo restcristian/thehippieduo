@@ -155,8 +155,31 @@
     .slick-slide {
       float: none;
     }
+    .slick-next,
+    .slick-prev {
+      width: 32px;
+      height: 32px;
+    }
+
+    .slick-prev {
+      left: -52px;
+    }
+    .slick-next{
+      right: -52px;
+    }
     .slick-next:before, .slick-prev:before{
       color:$color-faulred;
+      content:'';
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../../../images/arrow.png');
+      background-size: cover;
+    }
+    .slick-prev:before{
+      transform:scale(-1);
     }
   }
 }
