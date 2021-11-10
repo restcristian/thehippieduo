@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import HashTagLink from "../components/HashTagLink"
+import Layout from "../components/Layout/Layout"
 import LoadingScreen from "../components/LoadingScreen"
 import Nav from "../components/Nav"
 import ScrollButton from "../components/ScrollButton"
@@ -17,7 +18,8 @@ import '../shared/reset.scss'
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <main>
+    <Layout>
+      <main>
       <LoadingScreen isLoading ={isLoading} />
       <header>
         <Nav />
@@ -33,6 +35,7 @@ const IndexPage = () => {
       <ScrollButton />
       <HashTagLink />
     </main>
+    </Layout>
   )
 }
 
