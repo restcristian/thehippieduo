@@ -11,10 +11,10 @@
       flex-direction: column;
     }
   }
-  &__map {
-    &.leaflet-container {
+  &__map,.leaflet-container {
       width: 60%;
       height: 673px;
+      filter: grayscale(1);
 
       @media (max-width: $desktopMax) {
         display: block;
@@ -22,8 +22,9 @@
         order: 2;
         padding: 24px;
         height: 300px;
+        min-height: 300px;
       }
-    }
+    
   }
   &__infoCol {
     flex: 1;
