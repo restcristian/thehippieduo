@@ -2,7 +2,8 @@ import React from "react";
 import Text, { HeaderText } from "../../../components/Text";
 import "./Banner.scss";
 
-import andrysCristian from "../../../images/andrysandcristian@2x.png";
+import andrysCristianDesktop from "../../../images/andrysandcristian@2x.png";
+import andrysCristianMobile from "../../../images/aycmobile.png";
 import Button from "../../../components/Button";
 import Img from "../../../components/Img";
 import { scrollTo } from "../../../shared/utils";
@@ -18,11 +19,14 @@ const Banner = () => {
       <div className="banner__leftBG"></div>
       <div className="banner__right">
         <div className="banner__right-wrapper">
-          <Img
-            className="banner__andrysCris"
-            src={andrysCristian}
-            alt="Andrys & Cristian"
-          />
+        <picture>
+            <source media="(min-width: 601px)" srcset={andrysCristianDesktop} />
+            <Img
+              className="banner__andrysCris"
+              src={andrysCristianMobile}
+              alt="Andrys & Cristian"
+            />
+          </picture>
           <div className="banner__wrapper">
             <HeaderText>
               Jueves 14 <br />
