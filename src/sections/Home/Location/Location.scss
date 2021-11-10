@@ -12,16 +12,17 @@
     }
   }
   &__map {
-    width: 60%;
-    height: 673px;
-    filter:grayscale(1);
+    &.leaflet-container {
+      width: 60%;
+      height: 673px;
 
-    @media (max-width: $desktopMax) {
-      display: block;
-      width: 100%;
-      order: 2;
-      padding: 24px;
-      height: 300px;
+      @media (max-width: $desktopMax) {
+        display: block;
+        width: 100%;
+        order: 2;
+        padding: 24px;
+        height: 300px;
+      }
     }
   }
   &__infoCol {

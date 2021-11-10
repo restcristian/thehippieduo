@@ -1,5 +1,6 @@
 import React from "react";
 import { divIcon } from "leaflet";
+import "leaflet/dist/leaflet.css"
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import Text, { HeaderText } from "../../../components/Text";
 import "./Location.scss";
@@ -19,7 +20,7 @@ const Location = () => {
         {isBrowser() && (
           <MapContainer className = "location__map" center = {{lat: 18.454764, lng: -69.933219 }} zoom= {80} >
             <TileLayer 
-              url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              url = "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
               attribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' 
               maxZoom={17}
               />
