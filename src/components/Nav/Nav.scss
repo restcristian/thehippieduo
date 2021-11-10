@@ -50,12 +50,12 @@ $bk-medium: 1219px;
         visibility: visible;
       }
     }
-    .nav__toggle{
-      &:before{
+    .nav__toggle {
+      &:before {
         opacity: 0;
         visibility: hidden;
       }
-      
+
       > svg {
         opacity: 1;
         visibility: visible;
@@ -92,7 +92,7 @@ $bk-medium: 1219px;
       letter-spacing: 1.12px;
       color: $color-verdigris;
 
-      @media(min-width: $bk-medium + 1px ) {
+      @media (min-width: $bk-medium + 1px) {
         &:hover {
           color: $color-faulred;
         }
@@ -114,7 +114,7 @@ $bk-medium: 1219px;
       font-size: 31px;
       line-height: 1;
       padding: 20px 30px;
-      &:before{
+      &:before {
         width: 100%;
       }
     }
@@ -155,7 +155,10 @@ $bk-medium: 1219px;
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background-color: $color-scorpion;
+      background-color: $color-faulred;
+      @media (max-width: $desktopMax) {
+        background-color: $color-karry;
+      }
     }
 
     &:hover {
