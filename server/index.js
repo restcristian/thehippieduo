@@ -76,7 +76,7 @@ app.post('/rsvp', async (req, res) => {
 
     const options = {
         from: `${process.env.MAILER_EMAIL} `,
-        to: 'cristian.restituyo@gmail.com',
+        to: 'andrysfrias@gmail.com',
         subject: `RSVP from ${name} <${email}>`,
         html: `
             <b>Recommended song</b>:${song}</br>
