@@ -15,6 +15,7 @@ const RSVP = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [song, setSong] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -23,11 +24,14 @@ const RSVP = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await HippieDuoService.sendRSVP({ name, email, message, song });
       setIsModalOpen(true);
+      setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
+      console.error(error);
     }
   };
 
@@ -68,8 +72,16 @@ const RSVP = () => {
                   onChange={(event) => setSong(event.target.value)}
                 />
                 <div className="rsvp__submitContainer">
-                  <Button className="rsvp__submitButton" type="submit">
-                    <Text fontWeight="bold">Envía</Text>
+                  <Button
+                    className="rsvp__submitButton"
+                    type="submit"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <Text fontWeight="bold">Enviando...</Text>
+                      ) : (
+                        <Text fontWeight="bold">Envía</Text>
+                    )}
                   </Button>
                 </div>
               </form>
@@ -84,7 +96,9 @@ const RSVP = () => {
       </Grid>
       <Modal isOpen={isModalOpen} onClose={onModalClose}>
         <div>
-          <HeaderText className = "rsvp__modalHeader">Gracias por confirmar</HeaderText>
+          <HeaderText className="rsvp__modalHeader">
+            Gracias por confirmar
+          </HeaderText>
           <p className="rsvp__modalParagraph">
             <Text>
               Tu mensaje se ha enviado a nuestra bandeja de entrada. Te
@@ -92,7 +106,7 @@ const RSVP = () => {
             </Text>
           </p>
           <div>
-            <Button className="rsvp__modalBtn" onClick = {onModalClose}>
+            <Button className="rsvp__modalBtn" onClick={onModalClose}>
               <Text>Entendido</Text>
             </Button>
           </div>
