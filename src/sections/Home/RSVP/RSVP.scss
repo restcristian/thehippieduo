@@ -4,6 +4,10 @@
 .rsvp {
   background-color: $color-alabaster;
 
+  &__title {
+    padding-bottom: 16px;
+  }
+
   &__row {
     display: flex;
     padding: 120px 0;
