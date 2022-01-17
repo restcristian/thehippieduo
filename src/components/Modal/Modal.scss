@@ -59,13 +59,17 @@ $tablet-bp: 1590px;
   &__wrapper {
     position: relative;
 
-    padding: 70px;
+    padding:140px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     max-height: 100vh;
+
+    @media(max-width: $desktopMax){
+      padding: 70px;
+    }
     
   }
   &__closeBtn {
