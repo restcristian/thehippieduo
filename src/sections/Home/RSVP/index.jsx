@@ -27,12 +27,15 @@ const RSVP = () => {
     setIsLoading(true);
     try {
       await HippieDuoService.sendRSVP({ name, email, message, song });
+      setName("");
+      setEmail("");
+      setMessage("");
+      setSong("");
       setIsModalOpen(true);
-      setIsLoading(false);
     } catch (error) {
-      setIsLoading(false);
       console.error(error);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -79,8 +82,8 @@ const RSVP = () => {
                   >
                     {isLoading ? (
                       <Text fontWeight="bold">Enviando...</Text>
-                      ) : (
-                        <Text fontWeight="bold">Envía</Text>
+                    ) : (
+                      <Text fontWeight="bold">Envía</Text>
                     )}
                   </Button>
                 </div>
