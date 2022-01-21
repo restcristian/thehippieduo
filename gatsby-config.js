@@ -17,5 +17,21 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        // datalayer to be set before GTM is loaded
+        // should be a stringified object or object
+        //
+        // Defaults to null
+        id: "G-L35RF9TSNV",
+        includeInDevelopment: false,
+        defaultDataLayer: function () {
+          return {
+            pageType: window.pageType,
+          }
+        },
+      },
+    }
   ],
 };

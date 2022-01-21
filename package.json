@@ -21,6 +21,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "gatsby": "^3.10.2",
+    "gatsby-plugin-google-tagmanager": "^4.5.0",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-react-helmet": "^4.10.0",
     "gatsby-plugin-sass": "^4.10.0",
