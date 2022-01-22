@@ -16,7 +16,7 @@ import '../shared/reset.scss'
 
 // markup
 const IndexPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <Layout>
       <main>

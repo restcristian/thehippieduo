@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer"
 
 export const isBrowser = () => typeof window !== "undefined";
 
@@ -20,11 +21,11 @@ export const isInViewport = (element) => {
     rect.bottom > 0 &&
     rect.right > 0 &&
     rect.left <
-      ((isBrowser() && window.innerWidth) ||
-        document.documentElement.clientWidth) /* or $(window).width() */ &&
+    ((isBrowser() && window.innerWidth) ||
+      document.documentElement.clientWidth) /* or $(window).width() */ &&
     rect.top <
-      ((isBrowser() && window.innerHeight) ||
-        document.documentElement.clientHeight) /* or $(window).height() */
+    ((isBrowser() && window.innerHeight) ||
+      document.documentElement.clientHeight) /* or $(window).height() */
   );
 };
 
@@ -38,20 +39,20 @@ export const formatTime = (time) => {
 export const useScrollDirection = () => {
   const [direction, setDirection] = useState("");
   const [scroll, setScroll] = useState(isBrowser() && window.pageYOffset);
- 
+
   let lastScroll = 0;
 
   useEffect(() => {
     const scrollHandler = (e) => {
-      
+
       const currentScroll = window.pageYOffset;
       if (currentScroll <= 0) {
         return;
       }
       if (currentScroll > lastScroll) {
-       setDirection("down")
+        setDirection("down")
       } else if (currentScroll < lastScroll) {
-       setDirection("up")
+        setDirection("up")
       }
       lastScroll = currentScroll;
       setScroll(currentScroll);
@@ -122,4 +123,21 @@ export const generateCalendarEventLink = () => {
     location: 'Av+Sarasota,+No.+65,Santo+Domingo+República+Dominicana'
   }
   return `https://calendar.google.com/calendar/u/0/r/eventedit?text=${event.name}&dates=${event.date}&details=${event.details}&location=${event.location}&sf=false`
+}
+
+export const AnimateIn = ({ threshold = 0, triggerOnce = true, distance = 50, children, ...remainingProps }) => {
+  const [ref, inView] = useInView({ threshold, triggerOnce })
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        transition: "opacity 500ms, transform 500ms",
+        opacity: inView ? 1 : 0,
+        transform: `translateY(${inView ? 0 : distance}px)`,
+      }}
+    >
+      {children}
+    </div>
+  )
 }

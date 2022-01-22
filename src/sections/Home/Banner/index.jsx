@@ -20,7 +20,7 @@ const Banner = () => {
       <div className="banner__right">
         <div className="banner__right-wrapper">
         <picture>
-            <source media="(min-width: 601px)" srcset={andrysCristianDesktop} />
+            <source media="(min-width: 601px)" srcSet={andrysCristianDesktop} />
             <Img
               className="banner__andrysCris"
               src={andrysCristianMobile}

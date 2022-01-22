@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import Text, { HeaderText } from "../../../components/Text";
 import "./Location.scss";
-import { isBrowser } from "../../../shared/utils";
+import { AnimateIn, isBrowser } from "../../../shared/utils";
 
 const Location = () => {
   const mapRef = useRef(null);
@@ -33,27 +33,29 @@ const Location = () => {
   }, []);
 
   return (
-    <section className="location">
-      <div className="location__row">
-        {isBrowser() && <div ref={mapRef} className="location__map"></div>}
-        <div className="location__infoCol">
-          <HeaderText className="location__title">Ubicación</HeaderText>
-          <Text className="location__description">
-            Hotel El Embajador,
+    <AnimateIn>
+      <section className="location">
+        <div className="location__row">
+          {isBrowser() && <div ref={mapRef} className="location__map"></div>}
+          <div className="location__infoCol">
+            <HeaderText className="location__title">Ubicación</HeaderText>
+            <Text className="location__description">
+              Hotel El Embajador,
             <br />A Royal Hideaway
           </Text>
-          <address className="location__address">
-            <Text>
-              Av Sarasota, No. 65,
+            <address className="location__address">
+              <Text>
+                Av Sarasota, No. 65,
               <br />
               Santo Domingo
               <br />
               República Dominicana
             </Text>
-          </address>
+            </address>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </AnimateIn>
   );
 };
 

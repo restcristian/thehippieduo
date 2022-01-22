@@ -9,6 +9,7 @@ import rsvpImage from "../../../images/rsvp@2x.png";
 import HippieDuoService from "../../../services/HippieDuoService";
 
 import "./RSVP.scss";
+import { AnimateIn } from "../../../shared/utils";
 
 const RSVP = () => {
   const [name, setName] = useState("");
@@ -39,6 +40,8 @@ const RSVP = () => {
   };
 
   return (
+    <AnimateIn>
+
     <section className="rsvp">
       <Grid>
         <div className="rsvp__row">
@@ -116,6 +119,7 @@ const RSVP = () => {
         </div>
       </Modal>
     </section>
+    </AnimateIn>
   );
 };
 
