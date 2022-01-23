@@ -64,6 +64,7 @@ const Nav = () => {
                 <a
                   href={item.link}
                   onClick={(e) => {
+                    e.preventDefault();
                     onItemClickHandler(item);
                   }}
                 >
