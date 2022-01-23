@@ -125,7 +125,7 @@ export const generateCalendarEventLink = () => {
   return `https://calendar.google.com/calendar/u/0/r/eventedit?text=${event.name}&dates=${event.date}&details=${event.details}&location=${event.location}&sf=false`
 }
 
-export const AnimateIn = ({ threshold = 0, triggerOnce = true, distance = 50, children, ...remainingProps }) => {
+export const AnimateIn = ({ threshold = 0.15, triggerOnce = true, distance = 100, children, ...remainingProps }) => {
   const [ref, inView] = useInView({ threshold, triggerOnce })
 
   return (
@@ -135,7 +135,7 @@ export const AnimateIn = ({ threshold = 0, triggerOnce = true, distance = 50, ch
         position: "relative",
         transition: "opacity 500ms, top 500ms",
         opacity: inView ? 1 : 0,
-        top: `${inView ? 0 : -1 * distance}px`,
+        top: `${inView ? 0 :  distance}px`,
       }}
     >
       {children}
