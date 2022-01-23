@@ -12,7 +12,7 @@ const Banner = () => {
   const onClickConfirm = () => {
     const sectionRSVP = document.querySelector('section.rsvp');
     
-    scrollTo(document.documentElement, sectionRSVP.offsetTop, 200);
+    scrollTo(document.documentElement, sectionRSVP.getBoundingClientRect().top, 200);
   }
   return (
     <section className="banner" id = "banner">
