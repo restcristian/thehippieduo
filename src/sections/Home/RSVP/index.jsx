@@ -107,8 +107,8 @@ const RSVP = () => {
           </HeaderText>
           <p className="rsvp__modalParagraph">
             <Text>
-              Tu mensaje se ha enviado a nuestra bandeja de entrada. Te
-              estaremos actualizando sobre el proceso de la boda.
+              Tu mensaje se ha enviado a nuestra bandeja de entrada. Deberias recibir un correo confirmado tu respuesta en unos minutos. Porfavor verifica tu bandeja de Spam si no lo ves. Te
+              estaremos actualizando sobre el proceso de la boda. 
             </Text>
           </p>
           <div>
