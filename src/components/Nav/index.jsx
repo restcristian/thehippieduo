@@ -43,7 +43,7 @@ const Nav = () => {
     } else {
       toSelector = document.querySelector("section.rsvp");
     }
-    scrollTo(document.documentElement, toSelector.offsetTop, 200);
+    scrollTo(document.documentElement, toSelector.getBoundingClientRect().top, 200);
   };
 
   useEffect(() => {
