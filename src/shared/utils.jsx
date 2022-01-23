@@ -132,9 +132,10 @@ export const AnimateIn = ({ threshold = 0, triggerOnce = true, distance = 50, ch
     <div
       ref={ref}
       style={{
-        transition: "opacity 500ms, transform 500ms",
+        position: "relative",
+        transition: "opacity 500ms, top 500ms",
         opacity: inView ? 1 : 0,
-        transform: `translateY(${inView ? 0 : distance}px)`,
+        top: `${inView ? 0 : -1 * distance}px`,
       }}
     >
       {children}
