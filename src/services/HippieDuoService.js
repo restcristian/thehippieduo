@@ -1,7 +1,7 @@
 class HippieDuoService {
     baseUrl = ''
     constructor() {
-        this.baseUrl = "https://hippieduo-backend.herokuapp.com";
+        this.baseUrl = process.env.NODE_ENV === "production" ? "https://hippieduo-backend.herokuapp.com" : "http://localhost:9090";
     }
 
     async sendRSVP(data) {

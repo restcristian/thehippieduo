@@ -8,27 +8,27 @@ import { scrollTo } from "../../shared/utils";
 const items = [
   {
     label: "Save the Date",
-    link: "#",
+    link: "#saveTheDate",
     scrollToSelector: "section.saveTheDate",
   },
   {
     label: "Regalos",
-    link: "#",
+    link: "#giftList",
     scrollToSelector: "section.giftList",
   },
   {
     label: "Q&A",
-    link: "#",
+    link: "#qa",
     scrollToSelector: "section.qa",
   },
   {
     label: "Galería",
-    link: "#",
+    link: "#gallery",
     scrollToSelector: "section.gallery",
   },
   {
     label: "Ubicación",
-    link: "#",
+    link: "#location",
     scrollToSelector: "section.location",
   },
 ];
@@ -64,7 +64,6 @@ const Nav = () => {
                 <a
                   href={item.link}
                   onClick={(e) => {
-                    e.preventDefault();
                     onItemClickHandler(item);
                   }}
                 >

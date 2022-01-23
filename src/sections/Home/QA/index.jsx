@@ -11,7 +11,7 @@ import { AnimateIn } from "../../../shared/utils";
 const QA = () => {
   return (
     <AnimateIn>
-      <section className="qa">
+      <section className="qa" id = "qa">
         <Grid>
           <div className="qa__wrapper">
             <HeaderText>q&a | Preguntas frecuentes</HeaderText>

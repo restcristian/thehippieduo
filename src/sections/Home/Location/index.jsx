@@ -34,7 +34,7 @@ const Location = () => {
 
   return (
     <AnimateIn>
-      <section className="location">
+      <section className="location" id = "location">
         <div className="location__row">
           {isBrowser() && <div ref={mapRef} className="location__map"></div>}
           <div className="location__infoCol">

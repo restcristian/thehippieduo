@@ -9,7 +9,7 @@ import "./SaveTheDate.scss";
 const SaveTheDate = () => {
   return (
     <AnimateIn>
-      <section className="saveTheDate">
+      <section className="saveTheDate" id = "saveTheDate">
         <Grid className="saveTheDate__row">
           <div className="saveTheDate__wrapper">
             <div className="saveTheDate__column saveTheDate__columnLeft">

@@ -15,7 +15,7 @@ const Banner = () => {
     scrollTo(document.documentElement, sectionRSVP.offsetTop, 200);
   }
   return (
-    <section className="banner">
+    <section className="banner" id = "banner">
       <div className="banner__leftBG"></div>
       <div className="banner__right">
         <div className="banner__right-wrapper">

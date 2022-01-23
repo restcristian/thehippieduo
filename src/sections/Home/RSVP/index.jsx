@@ -42,7 +42,7 @@ const RSVP = () => {
   return (
     <AnimateIn>
 
-    <section className="rsvp">
+    <section className="rsvp" id="rsvp">
       <Grid>
         <div className="rsvp__row">
           <div className="rsvp__infoCol">

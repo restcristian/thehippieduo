@@ -11,7 +11,7 @@ import "./GiftList.scss";
 const GiftList = () => {
   return (
     <AnimateIn>
-      <section className="giftList">
+      <section className="giftList" id = "giftList">
         <Grid>
           <div className="giftList__wrapper">
             <Img

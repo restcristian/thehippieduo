@@ -10,7 +10,7 @@ import "./GoodBye.scss";
 const GoodBye = () => {
   return (
     <AnimateIn>
-      <section className="goodbye">
+      <section className="goodbye" id = "goodbye">
         <Grid>
           <div className="goodbye__row">
             <HeaderText className="goodbye__title">Nos vemos pronto</HeaderText>
