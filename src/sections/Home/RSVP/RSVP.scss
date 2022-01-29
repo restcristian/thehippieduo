@@ -37,6 +37,12 @@
     }
   }
 
+  &__error {
+    span {
+      color: $color-faulred;
+    }
+  }
+
   &__imgCol {
     width: 50%;
     @media (max-width: $desktopMax) {
@@ -68,7 +74,7 @@
     line-height: 30px;
   }
 
-  &__modalBtn{
+  &__modalBtn {
     padding: 21px 76px;
     cursor: pointer;
   }
@@ -76,5 +82,4 @@
   &__modalHeader {
     color: $color-faulred;
   }
-
 }
