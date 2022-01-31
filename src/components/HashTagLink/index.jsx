@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import Button from "../Button";
 import Facebook from "../Icons/Facebook";
@@ -12,29 +12,36 @@ const HashTagLink = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onToggleModal = () => {
-    setIsModalOpen(prevIsModalOpen => !prevIsModalOpen);
-  }
+    setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen);
+  };
 
   return (
     <>
       <div className="hashTagLink">
         <div className="hashTagLink__wrapper">
-          <a href="#" onClick = {(e) => {
-            e.preventDefault();
-            onToggleModal();
-          }}>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              onToggleModal();
+            }}
+          >
             <Text>#TheHippieDuo</Text>
           </a>
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose = {onToggleModal} className = "hashTagLink__modal">
-        <div className = "hashTagLink__modalWrapper">
+      <Modal
+        isOpen={isModalOpen}
+        onClose={onToggleModal}
+        className="hashTagLink__modal"
+      >
+        <div className="hashTagLink__modalWrapper">
           <HeaderText className="hashTagLink__modalHeader">
             ¡OH, Me encontraste!
           </HeaderText>
           <p className="hashTagLink__modalParagraph">
             <Text>
-              Quisimos dejarte esto por aquí para recordarte que la vida es {" "}
+              Quisimos dejarte esto por aquí para recordarte que la vida es{" "}
               <span className="bold">
                 corta, única y tu eres el protagonista
               </span>{" "}
@@ -52,11 +59,12 @@ const HashTagLink = () => {
               Gracias por ser parte de nuestros{" "}
               <span className="bold">70 acompañantes</span> en nuestra boda
               setentera. <br /> <br />
-              Aquí te dejamos algunos{" "}
-              <span className="bold">gifs animados</span> que podrás encontrar
-              en los <span className="bold">stories</span> para que compartas
-              durante nuestro gran día en tus redes sociales con el hashtag de
-              nuestra boda <Link className="link">#TheHippieDuo.</Link>
+              Te invitamos a utilizar nuestro hashtag:{" "}
+              <Link className="link">
+                <span className="bold">#TheHippieDuo</span>
+              </Link>{" "}
+              en los post y stories de tus redes sociales durante nuestro gran
+              día.
             </Text>
           </p>
           <div className="hashTagLink__modalButtonsContainer">
