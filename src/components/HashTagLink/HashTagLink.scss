@@ -29,19 +29,19 @@ $lg-bp: 2046px;
     font-size: 14px;
     line-height: 18px;
     position: relative;
-
     padding-right: 44px;
 
     &::before {
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
-      width: 24px;
+      left: -12px;
+      width: 49px;
       height: 100%;
       background-color: $color-faulred;
       transition: 0.2s ease-in-out;
     }
+
     &::after {
       content: "";
       position: absolute;
@@ -55,7 +55,7 @@ $lg-bp: 2046px;
 
     &:hover {
       &:before {
-        width: calc(100% - 15px);
+        width: calc(100% - 1px);
       }
     }
   }
@@ -78,6 +78,7 @@ $lg-bp: 2046px;
       padding: 70px;
       overflow: scroll;
     }
+
     @media (max-width: 540px) {
       padding: 40px;
     }
@@ -118,7 +119,7 @@ $lg-bp: 2046px;
     justify-content: center;
     align-items: center;
 
-    > svg {
+    >svg {
       width: 36px;
       height: auto;
       display: flex;

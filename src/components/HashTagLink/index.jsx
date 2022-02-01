@@ -26,7 +26,7 @@ const HashTagLink = () => {
               onToggleModal();
             }}
           >
-            <Text>#TheHippieDuo</Text>
+            <Text fontWeight="bold">#TheHippieDuo</Text>
           </a>
         </div>
       </div>
