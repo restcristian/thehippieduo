@@ -26,6 +26,11 @@ const GiftList = () => {
                 <Text>
                   Accede a la página de Amazon Alemania para dejar tu amor de
                   forma física en nuestro nuevo hogar.
+
+                  <br/> <br/>
+
+                  <Text fontWeight="bold">Nota:</Text> Porfavor cambiar el destino de entrega a Berlin, para que todos los artículos de la lista le aparezcan disponibles.
+
               </Text>
               </p>
               <Button
