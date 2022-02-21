@@ -29,7 +29,7 @@ const GiftList = () => {
 
                   <br/> <br/>
 
-                  <Text fontWeight="bold">Nota:</Text> Porfavor cambiar el destino de entrega a Berlin, para que todos los artículos de la lista le aparezcan disponibles.
+                  <Text fontWeight="bold">Nota:</Text> Por favor cambiar el destino de entrega a Berlin (ej: zip code: 10437), para que todos los artículos de la lista le aparezcan disponibles.
 
               </Text>
               </p>
