@@ -18,7 +18,7 @@ const RSVP = () => {
   const [song, setSong] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const [isActive, _] = useState(false);
+  const [isActive, _] = useState(true);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
