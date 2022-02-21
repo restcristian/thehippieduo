@@ -17,7 +17,7 @@
     color: $color-faulred;
     outline: none;
     font-weight: 600;
-    &:hover {
+    &:hover, &:disabled {
         background-color: $color-bridesmaid;
     }
     &::placeholder {

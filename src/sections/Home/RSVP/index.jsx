@@ -18,6 +18,7 @@ const RSVP = () => {
   const [song, setSong] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isActive, _] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -29,12 +30,14 @@ const RSVP = () => {
     setIsLoading(true);
     setHasError(false);
     try {
-      await HippieDuoService.sendRSVP({ name, email, message, song });
-      setName("");
-      setEmail("");
-      setMessage("");
-      setSong("");
-      setIsModalOpen(true);
+      if (isActive) {
+        await HippieDuoService.sendRSVP({ name, email, message, song });
+        setName("");
+        setEmail("");
+        setMessage("");
+        setSong("");
+        setIsModalOpen(true);
+      }
     } catch (error) {
       console.error(error);
       setHasError(true);
@@ -49,10 +52,20 @@ const RSVP = () => {
           <div className="rsvp__row">
             <div className="rsvp__infoCol">
               <HeaderText className="rsvp__title">RSVP</HeaderText>
-              <Text className="rsvp__description">
-                Confirma tu asistencia enviándonos un mensaje a nuestro correo.
-                Esto nos ayudará enormemente con tu ubicación dentro del salón.
-              </Text>
+              {isActive ? (
+                <Text className="rsvp__description">
+                  Confirma tu asistencia enviándonos un mensaje a nuestro
+                  correo. Esto nos ayudará enormemente con tu ubicación dentro
+                  del salón.
+                </Text>
+              ) : (
+                <Text className="rsvp__description">
+                  Gracias a todos por confirmar su asistencia con tiempo. El
+                  tiempo para reservar los asientos ya ha finalizado y siendo
+                  asignados sus lugares dentro del salón por el staff de la
+                  boda.
+                </Text>
+              )}
               <div className="rsvp__form">
                 <form onSubmit={onSubmit}>
                   <Input
@@ -60,6 +73,7 @@ const RSVP = () => {
                     required
                     value={name}
                     onChange={(event) => setName(event.target.value)}
+                    disabled={!isActive}
                   />
                   <Input
                     placeholder="Correo electrónico"
@@ -67,36 +81,41 @@ const RSVP = () => {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     type="email"
+                    disabled={!isActive}
                   />
                   <Input
                     placeholder="Mensaje especial"
                     required
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
+                    disabled={!isActive}
                   />
                   <Input
                     placeholder="Recomiéndame una canción"
                     value={song}
                     onChange={(event) => setSong(event.target.value)}
+                    disabled={!isActive}
                   />
                   {hasError && (
                     <div className="rsvp__error">
                       <span>Error! Su correo no pudo ser enviado.</span>
                     </div>
                   )}
-                  <div className="rsvp__submitContainer">
-                    <Button
-                      className="rsvp__submitButton"
-                      type="submit"
-                      disabled={isLoading}
-                    >
-                      {isLoading ? (
-                        <Text fontWeight="bold">Enviando...</Text>
-                      ) : (
-                        <Text fontWeight="bold">Envía</Text>
-                      )}
-                    </Button>
-                  </div>
+                  {isActive && (
+                    <div className="rsvp__submitContainer">
+                      <Button
+                        className="rsvp__submitButton"
+                        type="submit"
+                        disabled={isLoading}
+                      >
+                        {isLoading ? (
+                          <Text fontWeight="bold">Enviando...</Text>
+                        ) : (
+                          <Text fontWeight="bold">Envía</Text>
+                        )}
+                      </Button>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
