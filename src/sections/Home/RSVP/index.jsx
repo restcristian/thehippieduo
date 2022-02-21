@@ -61,9 +61,9 @@ const RSVP = () => {
               ) : (
                 <Text className="rsvp__description">
                   Gracias a todos por confirmar su asistencia con tiempo. El
-                  tiempo para reservar los asientos ya ha finalizado y siendo
-                  asignados sus lugares dentro del salón por el staff de la
-                  boda.
+                  tiempo para reservar los asientos ya ha finalizado y sus
+                  lugares están siendo asignados dentro del salón por el staff
+                  de la boda.
                 </Text>
               )}
               <div className="rsvp__form">
