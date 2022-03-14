@@ -59,12 +59,12 @@ const HashTagLink = () => {
               Gracias por ser parte de nuestros{" "}
               <span className="bold">70 acompañantes</span> en nuestra boda
               setentera. <br /> <br />
-              Te invitamos a utilizar nuestro hashtag:{" "}
+              Aquí te dejamos algunos gifs animados que podrás encontrar en 
+              los stories para que compartas durante nuestro gran día en tus 
+              redes sociales con el hashtag de nuestra boda{" "}
               <Link className="link">
                 <span className="bold">#TheHippieDuo</span>
               </Link>{" "}
-              en los post y stories de tus redes sociales durante nuestro gran
-              día.
             </Text>
           </p>
           <div className="hashTagLink__modalButtonsContainer">

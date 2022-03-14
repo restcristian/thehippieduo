@@ -88,6 +88,10 @@ $lg-bp: 2046px;
     margin-top: 48px;
     text-align: left;
     line-height: 30px;
+
+    .link {
+      color: $color-faulred;
+    }
   }
 
   &__modalButtonsContainer {
