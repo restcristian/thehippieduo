@@ -9,9 +9,10 @@ import { AnimateIn } from "../../../shared/utils";
 import "./GiftList.scss";
 
 const GiftList = () => {
+  const isGiftListOpen = false;
   return (
     <AnimateIn>
-      <section className="giftList" id = "giftList">
+      <section className="giftList" id="giftList">
         <Grid>
           <div className="giftList__wrapper">
             <Img
@@ -26,20 +27,21 @@ const GiftList = () => {
                 <Text>
                   Accede a la página de Amazon Alemania para dejar tu amor de
                   forma física en nuestro nuevo hogar.
-
-                  <br/> <br/>
-
-                  <Text fontWeight="bold">Nota:</Text> Por favor cambiar el destino de entrega a Berlin (ej: zip code: 10437), para que todos los artículos de la lista le aparezcan disponibles.
-
-              </Text>
+                  <br /> <br />
+                  <Text fontWeight="bold">Nota:</Text> Por favor cambiar el
+                  destino de entrega a Berlin (ej: zip code: 10437), para que
+                  todos los artículos de la lista le aparezcan disponibles.
+                </Text>
               </p>
-              <Button
-                className="giftList__button"
-                isLink
-                redirectTo="https://www.amazon.de/wedding/share/thehippieduo"
-              >
-                <Text fontWeight="bold">Ver Lista de Regalos</Text>
-              </Button>
+              {isGiftListOpen && (
+                <Button
+                  className="giftList__button"
+                  isLink
+                  redirectTo="https://www.amazon.de/wedding/share/thehippieduo"
+                >
+                  <Text fontWeight="bold">Ver Lista de Regalos</Text>
+                </Button>
+              )}
             </div>
           </div>
         </Grid>
