@@ -9,7 +9,7 @@ import { AnimateIn } from "../../../shared/utils";
 import "./GiftList.scss";
 
 const GiftList = () => {
-  const isGiftListOpen = false;
+  const isGiftListOpen = true;
   return (
     <AnimateIn>
       <section className="giftList" id="giftList">

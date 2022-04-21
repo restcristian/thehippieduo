@@ -17,6 +17,22 @@ class HippieDuoService {
         return await response.json()
     }
 
+    async getInstagramFeed(){
+        try {
+            const response = await fetch(`${this.baseUrl}/instagram-posts`,{
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            return await response.json();
+        }catch (error){
+            console.error(error);
+        }
+    }
+
 }
 
 export default new HippieDuoService();
