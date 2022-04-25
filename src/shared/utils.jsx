@@ -99,6 +99,10 @@ export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")
     // if the date has arrived
     if (distance < 0) {
       clearInterval(timeInterval);
+      setDays(0);
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
     }
   };
 
