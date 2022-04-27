@@ -7,17 +7,17 @@ const GalleryItem = ({ item, onClick }) => {
     <li className="gallery__item">
       <div
         className={`gallery__imgContainer ${
-          item.coverImage ? "" : "gallery__imgContainer--noImg"
+          item?.coverImage ? "" : "gallery__imgContainer--noImg"
         }`}
         onClick = {onClick}
       >
         <div
           className="gallery__coverBG"
           style={{
-            backgroundColor: item.coverColor,
+            backgroundColor: item?.coverColor,
           }}
         ></div>
-        {item.coverImage && (
+        {item?.coverImage && (
           <div
             className="gallery__img"
             style={{
@@ -31,7 +31,7 @@ const GalleryItem = ({ item, onClick }) => {
         )}
         <div className="gallery__imgLabelContainer">
           <Text className="gallery__imgLabel">
-            <span dangerouslySetInnerHTML={{ __html: item.imgLabel }} />
+            <span dangerouslySetInnerHTML={{ __html: item?.imgLabel }} />
           </Text>
           <Text
             className="gallery__imgLabel gallery__imgLabelHover"
@@ -41,7 +41,7 @@ const GalleryItem = ({ item, onClick }) => {
               }),
             }}
           >
-            <span dangerouslySetInnerHTML={{ __html: item.hoverLabel }} />
+            <span dangerouslySetInnerHTML={{ __html: item?.hoverLabel }} />
           </Text>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer"
+import { useInView } from "react-intersection-observer";
 
 export const isBrowser = () => typeof window !== "undefined";
 
@@ -21,11 +21,11 @@ export const isInViewport = (element) => {
     rect.bottom > 0 &&
     rect.right > 0 &&
     rect.left <
-    ((isBrowser() && window.innerWidth) ||
-      document.documentElement.clientWidth) /* or $(window).width() */ &&
+      ((isBrowser() && window.innerWidth) ||
+        document.documentElement.clientWidth) /* or $(window).width() */ &&
     rect.top <
-    ((isBrowser() && window.innerHeight) ||
-      document.documentElement.clientHeight) /* or $(window).height() */
+      ((isBrowser() && window.innerHeight) ||
+        document.documentElement.clientHeight) /* or $(window).height() */
   );
 };
 
@@ -44,15 +44,14 @@ export const useScrollDirection = () => {
 
   useEffect(() => {
     const scrollHandler = (e) => {
-
       const currentScroll = window.pageYOffset;
       if (currentScroll <= 0) {
         return;
       }
       if (currentScroll > lastScroll) {
-        setDirection("down")
+        setDirection("down");
       } else if (currentScroll < lastScroll) {
-        setDirection("up")
+        setDirection("up");
       }
       lastScroll = currentScroll;
       setScroll(currentScroll);
@@ -60,16 +59,18 @@ export const useScrollDirection = () => {
     document.addEventListener("scroll", scrollHandler);
     return () => {
       document.removeEventListener("scroll", scrollHandler);
-    }
+    };
   }, []);
 
   return {
     direction,
-    currentScroll: scroll
+    currentScroll: scroll,
   };
 };
 
-export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")) => {
+export const useCountDown = (
+  countdownDate = new Date("April 14, 2022 15:00:00")
+) => {
   const [hours, setHours] = useState(0);
   const [days, setDays] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -106,7 +107,6 @@ export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")
     }
   };
 
-
   useEffect(() => {
     timeInterval = setInterval(timePass, 1000);
   }, []);
@@ -115,22 +115,28 @@ export const useCountDown = (countdownDate = new Date("April 14, 2022 15:00:00")
     hours,
     days,
     minutes,
-    seconds
-  }
-}
+    seconds,
+  };
+};
 
 export const generateCalendarEventLink = () => {
   const event = {
-    name: 'Boda+de+Andrys+y+Cristian',
-    date: '20220414/20220415',
-    details: '',
-    location: 'Av+Sarasota,+No.+65,Santo+Domingo+República+Dominicana'
-  }
-  return `https://calendar.google.com/calendar/u/0/r/eventedit?text=${event.name}&dates=${event.date}&details=${event.details}&location=${event.location}&sf=false`
-}
+    name: "Boda+de+Andrys+y+Cristian",
+    date: "20220414/20220415",
+    details: "",
+    location: "Av+Sarasota,+No.+65,Santo+Domingo+República+Dominicana",
+  };
+  return `https://calendar.google.com/calendar/u/0/r/eventedit?text=${event.name}&dates=${event.date}&details=${event.details}&location=${event.location}&sf=false`;
+};
 
-export const AnimateIn = ({ threshold = 0.15, triggerOnce = true, distance = 100, children, ...remainingProps }) => {
-  const [ref, inView] = useInView({ threshold, triggerOnce })
+export const AnimateIn = ({
+  threshold = 0.15,
+  triggerOnce = true,
+  distance = 100,
+  children,
+  ...remainingProps
+}) => {
+  const [ref, inView] = useInView({ threshold, triggerOnce });
 
   return (
     <div
@@ -139,10 +145,40 @@ export const AnimateIn = ({ threshold = 0.15, triggerOnce = true, distance = 100
         position: "relative",
         transition: "opacity 500ms, top 500ms",
         opacity: inView ? 1 : 0,
-        top: `${inView ? 0 :  distance}px`,
+        top: `${inView ? 0 : distance}px`,
       }}
     >
       {children}
     </div>
-  )
-}
+  );
+};
+
+export const getEntriesByContentType = (entries, contentType) => {
+  return entries.filter(
+    (entry) => entry.sys.contentType.sys.id === contentType
+  );
+};
+
+export const getGalleyItemByContentType = (entries, contentType) => {
+  const entryByContentType = getEntriesByContentType(entries, contentType)[0];
+  if (entryByContentType) {
+    const { title, coverColor, description, hoverLabel, coverImage, photos } =
+      entryByContentType?.fields;
+    const thePhotos = photos.map((photo) => {
+      return {
+        image: photo.fields.file.url,
+      };
+    });
+
+    return {
+      imgLabel: title,
+      coverColor,
+      description,
+      hoverLabel,
+      coverImage: coverImage?.fields?.file?.url,
+      gallery: {
+        images: thePhotos,
+      },
+    };
+  }
+};

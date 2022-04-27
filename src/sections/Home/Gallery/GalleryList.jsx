@@ -1,72 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Img from "../../../components/Img";
 import Modal from "../../../components/Modal";
-import sessionImg from "../../../images/session.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 import "./Gallery.scss";
 import GalleryItem from "./GalleryItem";
-import andryscristian1 from "../../../images/novios/Andrys&Cristian1.jpg";
-import andryscristian2 from "../../../images/novios/Andrys&Cristian2.jpg";
-import andryscristian3 from "../../../images/novios/Andrys&Cristian3.jpg";
-import andryscristian4 from "../../../images/novios/Andrys&Cristian4.jpg";
-import andryscristian6 from "../../../images/novios/Andrys&Cristian6.jpg";
-import andryscristian7 from "../../../images/novios/Andrys&Cristian7.jpg";
-import andryscristian8 from "../../../images/novios/Andrys&Cristian8.jpg";
-import andryscristian9 from "../../../images/novios/Andrys&Cristian9.jpg";
-import andryscristian10 from "../../../images/novios/Andrys&Cristian10.jpg";
+import ContentfulService from "../../../services/ContentfulService";
+import { getGalleyItemByContentType } from "../../../shared/utils";
 
 const items = [
-  {
-    imgLabel: "Fotos de los<br/>novios",
-    coverColor: "#605C36",
-    coverImage: sessionImg,
-    hoverLabel: "Fotos de los<br/>novios",
-    description:
-      "Fotos del compromiso,<br/>Jardín Botánico,<br/>PH. Eduardo Cipion",
-    gallery: {
-      images: [
-        {
-          label: 'image 1',
-          image: andryscristian1,
-        },
-        {
-          label: 'image 2',
-          image: andryscristian2,
-        },
-        {
-          label: 'image 3',
-          image: andryscristian3
-        },
-        {
-          label: 'image 4',
-          image: andryscristian4
-        }, 
-        {
-          label: 'image 6',
-          image: andryscristian6
-        },
-        {
-          label: 'image 7',
-          image: andryscristian7
-        }, 
-        {
-          label: 'image 8',
-          image: andryscristian8
-        },
-        {
-          label: 'image 9',
-          image: andryscristian9
-        },
-        {
-          label: 'image 10',
-          image: andryscristian10
-        }
-      ],
-    },
-  },
+
   {
     imgLabel: "ceremonia<br/>boda",
     coverColor: "#ab3f0e",
@@ -140,10 +85,26 @@ const settings = {
 const GalleryList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState();
+  const [entries, setEntries] = useState([]);
+  
+  const photoBoothEntry = getGalleyItemByContentType(entries, "photobooth");
+  const noviosEntry = getGalleyItemByContentType(entries, "novios");
+
+  console.log("novios", noviosEntry)
+  const theItems = [noviosEntry, photoBoothEntry, ...items];
+
+  useEffect(async () => {
+    try {
+      const result = await ContentfulService.getAllEntries();
+      setEntries(result);
+    }catch(error){
+      console.error(error);
+    }
+  }, []);
   return (
     <>
       <ul className="gallery__list">
-        {items.map((item, index) => (
+        {theItems.map((item, index) => (
           <GalleryItem
             key={`gallery__item-${index}`}
             item={item}
