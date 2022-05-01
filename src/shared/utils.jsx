@@ -164,7 +164,7 @@ export const getGalleyItemByContentType = (entries, contentType) => {
   if (entryByContentType) {
     const { title, coverColor, description, hoverLabel, coverImage, photos } =
       entryByContentType?.fields;
-    const thePhotos = photos.map((photo) => {
+    const thePhotos = photos?.map((photo) => {
       return {
         image: photo.fields.file.url,
       };
