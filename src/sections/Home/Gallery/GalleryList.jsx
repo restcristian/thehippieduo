@@ -11,14 +11,6 @@ import ContentfulService from "../../../services/ContentfulService";
 import { getGalleyItemByContentType } from "../../../shared/utils";
 
 const items = [
-
-  {
-    imgLabel: "ceremonia<br/>boda",
-    coverColor: "#ab3f0e",
-    hoverLabel: "post-boda<br/>raww",
-
-    description: "Ceremonia boda,<br/>Hotel El Embajador",
-  },
   {
     imgLabel: "la fiesta<br/>de los 70s",
     coverColor: "#8a1619",
@@ -86,18 +78,19 @@ const GalleryList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState();
   const [entries, setEntries] = useState([]);
-  
+
   const photoBoothEntry = getGalleyItemByContentType(entries, "photobooth");
   const noviosEntry = getGalleyItemByContentType(entries, "novios");
+  const ceremoniaEntry = getGalleyItemByContentType(entries, "ceremonia");
 
-  console.log("novios", noviosEntry)
-  const theItems = [noviosEntry, photoBoothEntry, ...items];
+  console.log("novios", noviosEntry);
+  const theItems = [noviosEntry, ceremoniaEntry, photoBoothEntry, ...items];
 
   useEffect(async () => {
     try {
       const result = await ContentfulService.getAllEntries();
       setEntries(result);
-    }catch(error){
+    } catch (error) {
       console.error(error);
     }
   }, []);
@@ -117,16 +110,19 @@ const GalleryList = () => {
           />
         ))}
       </ul>
-      <Modal isOpen={isModalOpen} onClose = {() => {
-        setCurrentItem(null);
-        setIsModalOpen(false);
-      }}>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setCurrentItem(null);
+          setIsModalOpen(false);
+        }}
+      >
         <div className="gallery__slider">
           <Slider {...settings}>
             {currentItem?.gallery?.images?.map((item, index) => {
               return (
                 <div key={index}>
-                  <Img src={item.image} alt = {item.label} />
+                  <Img src={item.image} alt={item.label} />
                 </div>
               );
             })}
