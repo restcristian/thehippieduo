@@ -82,9 +82,10 @@ const GalleryList = () => {
   const photoBoothEntry = getGalleyItemByContentType(entries, "photobooth");
   const noviosEntry = getGalleyItemByContentType(entries, "novios");
   const ceremoniaEntry = getGalleyItemByContentType(entries, "ceremonia");
+  const photoBoothColletiveEntry = getGalleyItemByContentType(entries, "photoboothCollage");
 
   console.log("novios", noviosEntry);
-  const theItems = [noviosEntry, ceremoniaEntry, photoBoothEntry, ...items];
+  const theItems = [noviosEntry, ceremoniaEntry, photoBoothEntry, photoBoothColletiveEntry, ...items];
 
   useEffect(async () => {
     try {
