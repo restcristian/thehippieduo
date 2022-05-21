@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import Img from "../../../components/Img";
 import Modal from "../../../components/Modal";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 import "./Gallery.scss";
 import GalleryItem from "./GalleryItem";
