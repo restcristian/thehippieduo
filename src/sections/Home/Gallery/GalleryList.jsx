@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Masonry from "react-masonry-css";
 import Img from "../../../components/Img";
 import Modal from "../../../components/Modal";
 import "slick-carousel/slick/slick.css";
@@ -82,10 +83,25 @@ const GalleryList = () => {
   const photoBoothEntry = getGalleyItemByContentType(entries, "photobooth");
   const noviosEntry = getGalleyItemByContentType(entries, "novios");
   const ceremoniaEntry = getGalleyItemByContentType(entries, "ceremonia");
-  const photoBoothColletiveEntry = getGalleyItemByContentType(entries, "photoboothCollage");
+  const photoBoothColletiveEntry = getGalleyItemByContentType(
+    entries,
+    "photoboothCollage"
+  );
 
-  console.log("novios", noviosEntry);
-  const theItems = [noviosEntry, ceremoniaEntry, photoBoothEntry, photoBoothColletiveEntry, ...items];
+  const theItems = [
+    noviosEntry,
+    ceremoniaEntry,
+    photoBoothEntry,
+    photoBoothColletiveEntry,
+    ...items,
+  ];
+
+  const gridBreakpoints = {
+    default: 4,
+    1110: 3,
+    700: 2,
+    500: 1,
+  };
 
   useEffect(async () => {
     try {
@@ -118,16 +134,18 @@ const GalleryList = () => {
           setIsModalOpen(false);
         }}
       >
-        <div className="gallery__slider">
-          <Slider {...settings}>
+        <div className="gallery__modalInside">
+          <Masonry className="gallery__grid" breakpointCols={gridBreakpoints}>
             {currentItem?.gallery?.images?.map((item, index) => {
               return (
-                <div key={index}>
-                  <Img src={item.image} alt={item.label} />
+                <div key={index} className="gallery__gridItem">
+                  <div className="gallery__gridInnerItem" onClick = {() => window.open(item.image, '_blank')}>
+                    <Img src={item.image} alt={item.label} loading="lazy" />
+                  </div>
                 </div>
               );
             })}
-          </Slider>
+          </Masonry>
         </div>
       </Modal>
     </>
