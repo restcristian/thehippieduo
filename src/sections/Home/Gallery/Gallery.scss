@@ -158,12 +158,13 @@
     padding: 6px;
   }
 
-  &__gridInnerItem {
+  &__gridInnerItem img {
     position: relative;
-    transition: .2s transform ease-in-out;
+    transition: .2s all ease-in-out;
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(.9);
+  
     }
   }
 }
