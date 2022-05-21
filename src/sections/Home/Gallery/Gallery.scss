@@ -63,14 +63,13 @@
     background-color: $color-sepianskin;
     cursor: pointer;
 
-   &:not(&--noImg) {
-    &:hover {
-      .gallery__coverBG {
-        opacity: 0.5;
+    &:not(&--noImg) {
+      &:hover {
+        .gallery__coverBG {
+          opacity: 0.5;
+        }
       }
     }
-
-   }
     &--noImg {
       .gallery__coverBG {
         opacity: 0;
@@ -91,8 +90,6 @@
     }
   }
 
-  
-
   &__img {
     position: absolute;
     top: 0;
@@ -101,7 +98,6 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    
   }
 
   &__imgLabelContainer {
@@ -120,10 +116,10 @@
     display: block;
     transform: rotate(45deg);
     text-align: center;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
     width: 100%;
   }
-  &__imgLabelHover{
+  &__imgLabelHover {
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -164,22 +160,54 @@
     .slick-prev {
       left: -52px;
     }
-    .slick-next{
+    .slick-next {
       right: -52px;
     }
-    .slick-next:before, .slick-prev:before{
-      color:$color-faulred;
-      content:'';
+    .slick-next:before,
+    .slick-prev:before {
+      color: $color-faulred;
+      content: "";
       position: absolute;
-      top:0;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('../../../images/arrow.png');
+      background-image: url("../../../images/arrow.png");
       background-size: cover;
     }
-    .slick-prev:before{
-      transform:scale(-1);
+    .slick-prev:before {
+      transform: scale(-1);
+    }
+  }
+  &__grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    > div {
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  &__modalInside {
+    position: relative;
+    padding-top: 10px;
+    overflow-y: scroll;
+  }
+
+  &__gridItem {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding: 6px;
+  }
+
+  &__gridInnerItem {
+    position: relative;
+    transition: .2s transform ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
     }
   }
 }
