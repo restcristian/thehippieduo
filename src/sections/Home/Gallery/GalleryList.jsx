@@ -38,12 +38,6 @@ const items = [
     description: "Bellos recuerdos,<br/>Hotel El Embajador",
   },
   {
-    imgLabel: "getting<br/>ready",
-    coverColor: "#605C36",
-    hoverLabel: "post-boda<br/>raww",
-    description: "El cortejo en pinta,<br/>Habitación Nupcial",
-  },
-  {
     imgLabel: "video<br/>recepción",
     coverColor: "#DBAB9D",
     hoverLabel: "post-boda<br/>raww",
@@ -84,12 +78,14 @@ const GalleryList = () => {
     entries,
     "photoboothCollage"
   );
+  const gettingReadyEntry = getGalleyItemByContentType(entries, "gettingReady");
 
   const theItems = [
     noviosEntry,
     ceremoniaEntry,
     photoBoothEntry,
     photoBoothColletiveEntry,
+    gettingReadyEntry,
     ...items,
   ];
 
