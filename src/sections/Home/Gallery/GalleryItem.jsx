@@ -9,7 +9,7 @@ const GalleryItem = ({ item, onClick }) => {
         className={`gallery__imgContainer ${
           item?.coverImage ? "" : "gallery__imgContainer--noImg"
         }`}
-        onClick = {onClick}
+        onClick={onClick}
       >
         <div
           className="gallery__coverBG"
@@ -34,7 +34,11 @@ const GalleryItem = ({ item, onClick }) => {
             <span dangerouslySetInnerHTML={{ __html: item?.imgLabel }} />
           </Text>
           <Text
-            className="gallery__imgLabel gallery__imgLabelHover"
+            className={`gallery__imgLabel gallery__imgLabelHover ${
+              item?.hoverLabelColor
+                ? "gallery__imgLabelHover--hasLabelColor"
+                : ""
+            }`}
             style={{
               ...(item?.hoverLabelColor && {
                 color: item.hoverLabelColor,
