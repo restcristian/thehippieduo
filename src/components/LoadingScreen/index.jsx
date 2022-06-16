@@ -27,7 +27,7 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
       {
         autoAlpha: 1,
         delay: 0.2,
-        duration: 2.5,
+        duration: 2,
         onStart: () => {
           gsap.fromTo(
             charsDOM,
@@ -71,7 +71,7 @@ const LoadingScreen = ({ isLoading, setIsLoading }) => {
     let count = { val: 0 };
 
     gsap.to(count, {
-      duration: 13,
+      duration: 6,
       val: 100,
       roundProps: "val",
       onUpdate: () => setPercentage(count.val),
