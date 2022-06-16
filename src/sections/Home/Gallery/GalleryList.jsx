@@ -10,13 +10,6 @@ import { getGalleyItemByContentType } from "../../../shared/utils";
 
 const items = [
   {
-    imgLabel: "la fiesta<br/>de los 70s",
-    coverColor: "#8a1619",
-    hoverLabel: "post-boda<br/>raww",
-
-    description: "Recepción boda,<br/>Hotel El Embajador",
-  },
-  {
     imgLabel: "disfrutando<br/>el proceso",
     coverColor: "#455437",
     hoverLabel: "post-boda<br/>raww",
@@ -36,12 +29,6 @@ const items = [
     coverColor: "#DBAB9D",
     hoverLabel: "post-boda<br/>raww",
     description: "Recepción boda,<br/>Hotel El Embajador",
-  },
-  {
-    imgLabel: "first<br/>look",
-    coverColor: "#8A1619",
-    hoverLabel: "post-boda<br/>raww",
-    description: "Primeras impresiones,<br/>Anywhere",
   },
   {
     imgLabel: "un detalle<br/>especial",
@@ -74,14 +61,20 @@ const GalleryList = () => {
   );
   const gettingReadyEntry = getGalleyItemByContentType(entries, "gettingReady");
   const detailsEntry = getGalleyItemByContentType(entries, "details");
+  const recepcionBodaEntry = getGalleyItemByContentType(entries, "recepcionBoda");
+  const fiesta70Entry = getGalleyItemByContentType(entries, "fiesta70");
+  const firstLookEntry = getGalleyItemByContentType(entries, "firstLook");
 
   const theItems = [
+    fiesta70Entry,
+    recepcionBodaEntry,
     noviosEntry,
     ceremoniaEntry,
     photoBoothEntry,
     photoBoothColletiveEntry,
     gettingReadyEntry,
     detailsEntry,
+    firstLookEntry,
     ...items,
   ];
 
