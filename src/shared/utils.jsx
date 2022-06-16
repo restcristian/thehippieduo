@@ -179,6 +179,9 @@ export const getGalleyItemByContentType = (entries, contentType) => {
       gallery: {
         images: thePhotos,
       },
+      ...(entryByContentType?.fields?.hoverLabelColor && {
+        hoverLabelColor: entryByContentType?.fields?.hoverLabelColor
+      }),
     };
   }
 };
