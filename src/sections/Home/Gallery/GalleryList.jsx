@@ -30,13 +30,6 @@ const items = [
     hoverLabel: "post-boda<br/>raww",
     description: "Recepción boda,<br/>Hotel El Embajador",
   },
-  {
-    imgLabel: "un detalle<br/>especial",
-    coverColor: "#FEFFEF",
-    hoverLabel: "post-boda<br/>raww",
-    hoverLabelColor: "#605C36",
-    description: "El detalle especial,<br/>Ceremonia",
-  },
 ];
 
 const settings = {
@@ -64,6 +57,7 @@ const GalleryList = () => {
   const recepcionBodaEntry = getGalleyItemByContentType(entries, "recepcionBoda");
   const fiesta70Entry = getGalleyItemByContentType(entries, "fiesta70");
   const firstLookEntry = getGalleyItemByContentType(entries, "firstLook");
+  const detalleEspecialEntry = getGalleyItemByContentType(entries, "detalleEspecial");
 
   const theItems = [
     fiesta70Entry,
@@ -75,6 +69,7 @@ const GalleryList = () => {
     gettingReadyEntry,
     detailsEntry,
     firstLookEntry,
+    detalleEspecialEntry,
     ...items,
   ];
 
