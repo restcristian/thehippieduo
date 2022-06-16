@@ -68,8 +68,13 @@
         .gallery__coverBG {
           opacity: 0.5;
         }
+        .gallery__imgLabelHover {
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
+    
     &--noImg {
       .gallery__coverBG {
         opacity: 0;
